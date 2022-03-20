@@ -38,9 +38,9 @@ jobs:
           poetry run python main.py database.csv --output-dir data --output-file-name schools.json
     - name: Install nextjs dependencies and build applications   
       run: |
-            pnpm install
-            pnpm run build --if-present
-            pnpm next export
+            npm install
+            npm run build --if-present
+            npm next export
     - name: Clean up task 
       run: |
             rm -f database.csv
