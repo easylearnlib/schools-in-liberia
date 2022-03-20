@@ -28,22 +28,19 @@ jobs:
         cache: 'npm'
     - name: Install Poetry
       uses: snok/install-poetry@v1
-    - name: Fetch csv file and generate json file 
+    - name: Fetch data
       run: |
-          git clone https://github.com/omarudolley/csv-to-json
-          cd csv-to-json
-          poetry install 
           poetry add  gdown
-          poetry run gdown https://drive.google.com/uc?id=1LAgLzi0GwDAZSNP-XSfi7Xhurr204ocM
-          poetry run python main.py database.csv --output-dir data --output-file-name schools.json
+          poetry run gdown https://drive.google.com/uc?id=1Ig_GUZn222UGk81950Qg8_vjvsqSwm_d
+          mkdir data
+          mv schools.js data 
     - name: Install nextjs dependencies and build applications   
       run: |
             npm install
-            npm run build --if-present
+            npm run build 
             npm next export
     - name: Clean up task 
       run: |
-            rm -f database.csv
             rm -rf data
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.2.5
