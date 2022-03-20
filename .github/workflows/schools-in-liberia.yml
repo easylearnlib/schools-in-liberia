@@ -29,7 +29,7 @@ jobs:
     - name: Install Poetry
       uses: snok/install-poetry@v1
     - name: Fetch csv file and generate json file 
-    - run: |
+      run: |
           git clone https://github.com/omarudolley/csv-to-json
           cd csv-to-json
           poetry install 
@@ -37,12 +37,12 @@ jobs:
           poetry run gdown https://drive.google.com/uc?id=1LAgLzi0GwDAZSNP-XSfi7Xhurr204ocM
           poetry run python main.py database.csv --output-dir data --output-file-name schools.json
     - name: Install nextjs dependencies and build applications   
-    - run: |
+      run: |
             pnpm install
             pnpm run build --if-present
             pnpm next export
     - name: Clean up task 
-    - run: |
+      run: |
             rm -f database.csv
             rm -rf data
     - name: Deploy 🚀
