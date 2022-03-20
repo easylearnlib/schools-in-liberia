@@ -3,12 +3,11 @@
 const nextConfig = {
   reactStrictMode: true,
 
-  async redirects() {
+  async rewrites() {
     return [
       {
         source: "/",
         destination: "/archives/1",
-        permanent: true,
       },
     ];
   },
