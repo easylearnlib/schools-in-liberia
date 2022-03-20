@@ -10,7 +10,7 @@ type SchoolProps = {
 export default function School({ options }: SchoolProps) {
   return (
     <Wrapper>
-      <Link href={`schools/${slugify(options.schoolName)}`}>
+      <Link href={`/schools/${slugify(options.schoolName)}`}>
         <a>{options.schoolName}</a>
       </Link>
     </Wrapper>
