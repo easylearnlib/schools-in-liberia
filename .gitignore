@@ -41,5 +41,9 @@ yarn-error.log*
 # Data
 data/
 
-# Pycharm
-.idea/
+# Misc
+.idea/modules.xml
+.idea/schools-in-liberia.iml
+.idea/vcs.xml
+.idea
+.DS_Store

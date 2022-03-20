@@ -5,13 +5,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,28 +19,31 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Fetch data
-      run: |
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - name: Fetch data
+        run: |
           sudo apt install python3-pip
-          pip install gdown 
+          pip install gdown
           gdown https://drive.google.com/uc?id=1Ig_GUZn222UGk81950Qg8_vjvsqSwm_d
           mkdir data
-          mv schools.json data 
-    - name: Install nextjs dependencies and build applications   
-      run: |
-            npm install
-            npm run build 
-    - name: Clean up task 
-      run: |
-            rm -rf data
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4.2.5
-      with:
-        branch: gh-pages # The branch the action should deploy to.
-        folder: out # The folder the action should deploy.
+          mv schools.json data
+      - name: Install nextjs dependencies and build applications
+        run: |
+          npm install
+          npm run build
+          env:
+            NEXT_PUBLIC_BASE_PATH:/schools-in-liberia
+      - run: touch ./out/.nojekyll
+      - name: Clean up task
+        run: |
+          rm -rf data
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: out # The folder the action should deploy.
