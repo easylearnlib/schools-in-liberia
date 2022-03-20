@@ -8,8 +8,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: process.env.NEXT_PUBLIC_BASE_PATH || "/",
-        destination: "/archives/1",
+        source: "/",
+        destination: "archives/1",
         permanent: true,
       },
     ];
