@@ -6,11 +6,11 @@ import styled from "styled-components";
 type SchoolProps = {
   options: SchoolsInput;
 };
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function School({ options }: SchoolProps) {
   return (
     <Wrapper>
-      <Link href={`/${prefix}/schools/${slugify(options.schoolName)}`}>
+      <Link href={`schools/${slugify(options.schoolName)}`}>
         <a>{options.schoolName}</a>
       </Link>
     </Wrapper>
