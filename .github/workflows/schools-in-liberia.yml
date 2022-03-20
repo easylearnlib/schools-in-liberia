@@ -32,7 +32,7 @@ jobs:
           pip install gdown 
           gdown https://drive.google.com/uc?id=1Ig_GUZn222UGk81950Qg8_vjvsqSwm_d
           mkdir data
-          mv schools.js data 
+          mv schools.json data 
     - name: Install nextjs dependencies and build applications   
       run: |
             npm install
