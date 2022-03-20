@@ -26,12 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
     - name: Fetch data
       run: |
-          poetry add  gdown
-          poetry run gdown https://drive.google.com/uc?id=1Ig_GUZn222UGk81950Qg8_vjvsqSwm_d
+          sudo apt install python3-pip
+          pip install gdown 
+          gdown https://drive.google.com/uc?id=1Ig_GUZn222UGk81950Qg8_vjvsqSwm_d
           mkdir data
           mv schools.js data 
     - name: Install nextjs dependencies and build applications   
