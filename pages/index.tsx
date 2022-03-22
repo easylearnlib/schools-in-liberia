@@ -2,37 +2,45 @@ import data from "../data/schools.json";
 import { SchoolsInput } from "../models";
 import styled from "styled-components";
 import MaterialTable from "material-table";
-import { useRouter } from "next/router";
 import { slugify } from "../utilities";
+import Link from "next/link";
 
 type HomeProps = {
   schools: SchoolsInput[];
-  columns: { title: string; field: string }[];
 };
 
-function Home({ schools, columns }: HomeProps) {
-  const router = useRouter();
+function Home({ schools }: HomeProps) {
+  const columns = [
+    {
+      title: "EMIS Number",
+      field: "emisNumber",
+      render: (rowData: SchoolsInput) => (
+        <Link href={`/schools/${slugify(rowData.schoolName)}`}>
+          <a>{rowData.schoolName}</a>
+        </Link>
+      ),
+    },
+    { title: "School Name", field: "schoolName" },
+    { title: "County", field: "county" },
+    { title: "District", field: "district" },
+    { title: "School Type", field: "schoolType" },
+    { title: "Junior High", field: "jhsSchool" },
+    { title: "Senior High", field: "shsSchool" },
+    { title: "Primary School", field: "primarySchool" },
+  ];
+
   return (
     <Wrapper>
       <MaterialTable
-        actions={[
-          {
-            icon: "info",
-            tooltip: "View info",
-            onClick: (event, rowData: SchoolsInput | SchoolsInput[]) =>
-              router.push(
-                `/schools/${slugify(
-                  "schoolName" in rowData ? rowData.schoolName : ""
-                )}`
-              ),
-          },
-        ]}
         columns={columns}
         data={schools}
         title="Educational Institutions in Liberia"
         options={{
-          pageSize: 50,
-          pageSizeOptions: [50, 100, 150, 200],
+          pageSize: 20,
+          pageSizeOptions: [20, 50, 100, 150, 200],
+          exportButton: true,
+          grouping: true,
+          sorting: true,
         }}
       />
     </Wrapper>
@@ -51,21 +59,9 @@ export async function getStaticProps() {
     primarySchool: item.primarySchool,
   }));
 
-  const columns = [
-    { title: "EMIS Number", field: "emisNumber" },
-    { title: "School Name", field: "schoolName" },
-    { title: "County", field: "county" },
-    { title: "District", field: "district" },
-    { title: "School Type", field: "schoolType" },
-    { title: "Junior High", field: "jhsSchool" },
-    { title: "Senior High", field: "shsSchool" },
-    { title: "Primary School", field: "primarySchool" },
-  ];
-
   return {
     props: {
       schools,
-      columns,
     },
   };
 }
