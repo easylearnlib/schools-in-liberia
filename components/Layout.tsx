@@ -22,7 +22,7 @@ const MainLayoutBox = styled.div`
   flex-direction: column;
   justify-conternt: center;
   align-items: center;
-  margin: 2rem auto;
+  margin: 0rem auto;
 `;
 
 const Main = styled.div`

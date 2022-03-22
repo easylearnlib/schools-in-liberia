@@ -18,9 +18,10 @@ const Wrapper = styled.div`
   justify-content: center;
   margin-top: auto;
   width: 100%;
+  color: rgba(0, 46, 162, 1);
 `;
 
 const Text = styled.p`
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
 `;

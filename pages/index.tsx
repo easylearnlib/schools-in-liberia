@@ -37,7 +37,7 @@ function Home({ schools }: HomeProps) {
       <MaterialTable
         columns={columns}
         data={schools}
-        title="Educational Institutions in Liberia"
+        title="Education Liberia"
         options={{
           pageSize: 20,
           pageSizeOptions: [20, 50, 100, 150, 200],
