@@ -21,6 +21,9 @@ function SchoolDetails({ school }: HomeProps) {
             {school.district} District - {school.county} County
           </SubTitle>
           <SubTitle>Liberia</SubTitle>
+          <Link href={"/"}>
+            <Anchor>Return to home page</Anchor>
+          </Link>
         </Head>
         <Body>
           Emis Number
@@ -84,8 +87,6 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
 }
 
 const Container = styled(Grid)`
-  display: flex;
-  flex-direction: column;
   box-shadow: 5px 10px 18px #888888;
 `;
 const Title = styled.h1`
