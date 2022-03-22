@@ -4,7 +4,6 @@ import styled from "styled-components";
 import MaterialTable from "material-table";
 import { slugify } from "../utilities";
 import Link from "next/link";
-import { Grid } from "@mui/material";
 import Footer from "../components/Footer";
 import React from "react";
 
@@ -36,7 +35,7 @@ function Home({ schools }: HomeProps) {
   ];
 
   return (
-    <Wrapper container>
+    <Wrapper>
       <MaterialTable
         columns={columns}
         data={schools}
@@ -77,7 +76,7 @@ export async function getStaticProps() {
   };
 }
 
-const Wrapper = styled(Grid)`
+const Wrapper = styled.div`
   margin: 2rem 0;
   justify-content: center;
   width: 100%;
