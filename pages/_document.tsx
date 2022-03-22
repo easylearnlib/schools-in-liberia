@@ -74,9 +74,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
           <link
-            href="https://api.fonts.coollabs.io/css2?family=Roboto:wght@300;400;700;900&family=Ubuntu:wght@300;400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Ubuntu:wght@300;400;700&display=swap"
             rel="stylesheet"
           />
+          <meta name="robots" content="all" />
         </Head>
 
         <body>
