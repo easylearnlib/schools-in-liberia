@@ -14,13 +14,16 @@ function Home({ schools }: HomeProps) {
     {
       title: "EMIS Number",
       field: "emisNumber",
+    },
+    {
+      title: "School Name",
+      field: "schoolName",
       render: (rowData: SchoolsInput) => (
         <Link href={`/schools/${slugify(rowData.schoolName)}`}>
           <a>{rowData.schoolName}</a>
         </Link>
       ),
     },
-    { title: "School Name", field: "schoolName" },
     { title: "County", field: "county" },
     { title: "District", field: "district" },
     { title: "School Type", field: "schoolType" },
@@ -67,8 +70,7 @@ export async function getStaticProps() {
 }
 
 const Wrapper = styled.div`
-  padding: 5rem 1rem;
-  margin: 0 auto;
+  margin: 1rem auto;
   width: 100%;
 `;
 
