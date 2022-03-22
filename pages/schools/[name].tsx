@@ -4,6 +4,7 @@ import { slugify } from "../../utilities";
 import styled from "styled-components";
 import { NextSeo } from "next-seo";
 import { Grid } from "@mui/material";
+import Link from "next/link";
 
 type HomeProps = {
   school: SchoolsInput;
@@ -34,19 +35,27 @@ function SchoolDetails({ school }: HomeProps) {
           <SubTitle>{school.primarySchool.toString().toUpperCase()}</SubTitle>
           ABE School
           <SubTitle>
-            {school?.abeSchool && school.abeSchool.toString().toUpperCase()}
+            {school?.abeSchool
+              ? school.abeSchool.toString().toUpperCase()
+              : "None"}
           </SubTitle>
           ALP School
           <SubTitle>
-            {school.alpSchool && school.alpSchool.toString().toUpperCase()}
+            {school.alpSchool
+              ? school.alpSchool.toString().toUpperCase()
+              : "None"}
           </SubTitle>
           ECE School
           <SubTitle>
-            {school.eceSchool && school.eceSchool.toString().toUpperCase()}
+            {school.eceSchool
+              ? school.eceSchool.toString().toUpperCase()
+              : "None"}
           </SubTitle>
           TVET School
           <SubTitle>
-            {school.tvetSchool && school.tvetSchool.toString().toUpperCase()}
+            {school.tvetSchool
+              ? school.tvetSchool.toString().toUpperCase()
+              : "None"}
           </SubTitle>
         </Body>
       </Container>
@@ -106,6 +115,19 @@ const Body = styled(Grid)`
 const Head = styled(Grid)`
   margin: 2rem 0;
   border-bottom: 1px solid black;
+`;
+
+const Anchor = styled.a`
+  cursor: pointer;
+
+  &:visited {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: rgba(0, 46, 162, 1);
+  }
 `;
 
 export default SchoolDetails;
