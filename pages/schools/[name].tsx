@@ -21,29 +21,29 @@ function SchoolDetails({ school }: HomeProps) {
             {school.district} District - {school.county} County
           </SubTitle>
           <SubTitle>Liberia</SubTitle>
-          <Link href={"/"}>
+          <Link href={"/"} passHref>
             <Anchor>Return to home page</Anchor>
           </Link>
         </Head>
         <Body>
           Emis Number
-          <SubTitle>{school.emisNumber}</SubTitle>
+          <Value>{school.emisNumber}</Value>
           School Type
-          <SubTitle>{school.schoolType}</SubTitle>
+          <Value>{school.schoolType}</Value>
           Senior High School
-          <SubTitle>{school.shsSchool ? "Yes" : "None"}</SubTitle>
+          <Value>{school.shsSchool ? "Yes" : "None"}</Value>
           Junior High School
-          <SubTitle>{school.jhsSchool ? "Yes" : "None"}</SubTitle>
+          <Value>{school.jhsSchool ? "Yes" : "None"}</Value>
           Primary School
-          <SubTitle>{school.primarySchool ? "Yes" : "None"}</SubTitle>
+          <Value>{school.primarySchool ? "Yes" : "None"}</Value>
           ABE School
-          <SubTitle>{school.abeSchool ? "Yes" : "None"}</SubTitle>
+          <Value>{school.abeSchool ? "Yes" : "None"}</Value>
           ALP School
-          <SubTitle>{school.alpSchool ? "Yes" : "None"}</SubTitle>
+          <Value>{school.alpSchool ? "Yes" : "None"}</Value>
           ECE School
-          <SubTitle>{school.eceSchool ? "Yes" : "None"}</SubTitle>
+          <Value>{school.eceSchool ? "Yes" : "None"}</Value>
           TVET School
-          <SubTitle>{school.tvetSchool ? "Yes" : "None"}</SubTitle>
+          <Value>{school.tvetSchool ? "Yes" : "None"}</Value>
         </Body>
       </Container>
     </Wrapper>
@@ -72,17 +72,21 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
 
 const Container = styled(Grid)`
   box-shadow: 5px 10px 18px #888888;
+  margin-bottom: 2rem;
 `;
 const Title = styled.h1`
   font-size: 1.8rem;
   font-weight: 700;
-  color: rgba(0, 46, 162, 1);
+  color: #fff;
   margin: 0;
 `;
 
 const SubTitle = styled.h2`
   font-size: 1.2rem;
   margin-bottom: 1rem;
+`;
+
+const Value = styled(SubTitle)`
   color: rgba(0, 46, 162, 1);
 `;
 
@@ -95,15 +99,25 @@ const Wrapper = styled(Grid)`
 const Body = styled(Grid)`
   align-text: left;
   font-weight: 700;
+  padding: 1rem 0rem;
 `;
 
 const Head = styled(Grid)`
-  margin: 2rem 0;
+  padding: 2rem 0;
   border-bottom: 1px solid black;
+  background: rgba(0, 46, 162, 1);
+  color: #fff;
 `;
 
 const Anchor = styled.a`
   cursor: pointer;
+  border: 1px solid #fff;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  font-size: 0.9rem;
+  background: #fff;
+  color: rgba(0, 46, 162, 1);
+  font-weight: 700;
 
   &:visited {
     color: rgba(0, 0, 0, 0.87);
@@ -111,7 +125,6 @@ const Anchor = styled.a`
 
   &:hover {
     text-decoration: underline;
-    color: rgba(0, 46, 162, 1);
   }
 `;
 

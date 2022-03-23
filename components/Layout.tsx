@@ -25,7 +25,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 120rem;
+  max-width: 100rem;
   text-align: center;
   margin: 0 auto;
   min-height: 100vh;

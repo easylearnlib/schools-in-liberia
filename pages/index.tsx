@@ -21,7 +21,7 @@ function Home({ schools }: HomeProps) {
       title: "School Name",
       field: "schoolName",
       render: (rowData: SchoolsInput) => (
-        <Link href={`/schools/${slugify(rowData.schoolName)}`}>
+        <Link href={`/schools/${slugify(rowData.schoolName)}`} passHref>
           <Anchor>{rowData.schoolName}</Anchor>
         </Link>
       ),
@@ -36,7 +36,7 @@ function Home({ schools }: HomeProps) {
       <MaterialTable
         columns={columns}
         data={schools}
-        title="Liberia School System"
+        title={<Title>Liberia School System</Title>}
         options={{
           pageSize: 20,
           pageSizeOptions: [20, 50, 100, 150, 200],
@@ -46,6 +46,7 @@ function Home({ schools }: HomeProps) {
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
+            fontWeight: 700,
           },
         }}
       />
@@ -88,6 +89,13 @@ const Anchor = styled.a`
     text-decoration: underline;
     color: rgba(0, 46, 162, 1);
   }
+`;
+
+const Title = styled.h1`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(0, 46, 162, 1);
+  margin: 0;
 `;
 
 export default Home;
