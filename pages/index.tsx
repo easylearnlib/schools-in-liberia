@@ -26,12 +26,9 @@ function Home({ schools }: HomeProps) {
         </Link>
       ),
     },
-    { title: "County", field: "county" },
-    { title: "District", field: "district" },
     { title: "School Type", field: "schoolType" },
-    { title: "Junior High", field: "jhsSchool" },
-    { title: "Senior High", field: "shsSchool" },
-    { title: "Primary School", field: "primarySchool" },
+    { title: "District", field: "district" },
+    { title: "County", field: "county" },
   ];
 
   return (
@@ -39,7 +36,7 @@ function Home({ schools }: HomeProps) {
       <MaterialTable
         columns={columns}
         data={schools}
-        title="Education Liberia"
+        title="Liberia School System"
         options={{
           pageSize: 20,
           pageSizeOptions: [20, 50, 100, 150, 200],
@@ -61,12 +58,9 @@ export async function getStaticProps() {
   const schools = data.map((item) => ({
     emisNumber: item.emisNumber,
     schoolName: item.schoolName,
-    county: item.county,
-    district: item.district,
     schoolType: item.schoolType,
-    jhsSchool: item.jhsSchool,
-    shsSchool: item.shsSchool,
-    primarySchool: item.primarySchool,
+    district: item.district,
+    county: item.county,
   }));
 
   return {

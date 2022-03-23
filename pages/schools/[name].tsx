@@ -31,35 +31,19 @@ function SchoolDetails({ school }: HomeProps) {
           School Type
           <SubTitle>{school.schoolType}</SubTitle>
           Senior High School
-          <SubTitle>{school.shsSchool.toString().toUpperCase()}</SubTitle>
+          <SubTitle>{school.shsSchool ? "Yes" : "None"}</SubTitle>
           Junior High School
-          <SubTitle>{school.jhsSchool.toString().toUpperCase()}</SubTitle>
+          <SubTitle>{school.jhsSchool ? "Yes" : "None"}</SubTitle>
           Primary School
-          <SubTitle>{school.primarySchool.toString().toUpperCase()}</SubTitle>
+          <SubTitle>{school.primarySchool ? "Yes" : "None"}</SubTitle>
           ABE School
-          <SubTitle>
-            {school?.abeSchool
-              ? school.abeSchool.toString().toUpperCase()
-              : "None"}
-          </SubTitle>
+          <SubTitle>{school.abeSchool ? "Yes" : "None"}</SubTitle>
           ALP School
-          <SubTitle>
-            {school.alpSchool
-              ? school.alpSchool.toString().toUpperCase()
-              : "None"}
-          </SubTitle>
+          <SubTitle>{school.alpSchool ? "Yes" : "None"}</SubTitle>
           ECE School
-          <SubTitle>
-            {school.eceSchool
-              ? school.eceSchool.toString().toUpperCase()
-              : "None"}
-          </SubTitle>
+          <SubTitle>{school.eceSchool ? "Yes" : "None"}</SubTitle>
           TVET School
-          <SubTitle>
-            {school.tvetSchool
-              ? school.tvetSchool.toString().toUpperCase()
-              : "None"}
-          </SubTitle>
+          <SubTitle>{school.tvetSchool ? "Yes" : "None"}</SubTitle>
         </Body>
       </Container>
     </Wrapper>

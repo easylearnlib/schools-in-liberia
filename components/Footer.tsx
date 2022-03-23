@@ -4,7 +4,8 @@ import styled from "styled-components";
 export default function Footer() {
   return (
     <Wrapper>
-      <Text>+2318862527/ jabateh.ansu@yahoo.com</Text>
+      <Text>+231777298772</Text>
+      <Text>nouhanjabateh@gmail.com</Text>
     </Wrapper>
   );
 }
@@ -19,6 +20,9 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.p`
-  margin-top: 1rem;
-  font-size: 1rem;
+  &: first-of-type {
+    margin-top: 2rem;
+  }
+  margin: 0;
+  font-size: 1.2rem;
 `;
