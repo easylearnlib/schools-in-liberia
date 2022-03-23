@@ -30,11 +30,11 @@ function SchoolDetails({ school }: HomeProps) {
           <Value>{school.emisNumber}</Value>
           School Type
           <Value>{school.schoolType}</Value>
-          Senior High School
+          Senior High Division
           <Value>{school.shsSchool ? "Yes" : "None"}</Value>
-          Junior High School
+          Junior High Division
           <Value>{school.jhsSchool ? "Yes" : "None"}</Value>
-          Primary School
+          Primary Division
           <Value>{school.primarySchool ? "Yes" : "None"}</Value>
           ABE School
           <Value>{school.abeSchool ? "Yes" : "None"}</Value>
