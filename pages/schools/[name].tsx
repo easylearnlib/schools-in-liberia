@@ -25,86 +25,119 @@ function SchoolDetails({ school }: HomeProps) {
             <Anchor>Return to home page</Anchor>
           </Link>
         </Head>
-        <Body container direction={"column"}>
+        <Body
+          container
+          direction={"column"}
+          sx={{ px: { xs: 0, sm: 1, md: 2, lg: 3 }, py: 3 }}
+        >
           <Info>Description</Info>
-          <Row container item>
-            <Column item xs={4}>
-              EMIS Number
+          <Row item>
+            <Item>
+              EMIS
               <Value>{school.emisNumber}</Value>
+            </Item>
+            <Item>
               School Type
               <Value>{school.schoolType}</Value>
-            </Column>
-            <Column item xs={4}>
-              Contact Number
+            </Item>
+            <Item>
+              Phone
               <Value>N/A</Value>
-              Email Address
+            </Item>
+
+            <Item>
+              Email
               <Value>N/A</Value>
-            </Column>
-            <Column item xs={4}>
+            </Item>
+            <Item>
               Address
               <Value>N/A</Value>
+            </Item>
+            <Item>
               Website
               <Value>N/A</Value>
-            </Column>
+            </Item>
           </Row>
+
           <Info>Additional Info</Info>
-          <Row container item>
-            <Column item xs={4}>
-              Senior High Division
+          <Row item>
+            <Item>
+              Senior High
               <Value>{school.shsSchool ? "Yes" : "None"}</Value>
+            </Item>
+            <Item>
               TVET School
               <Value>{school.tvetSchool ? "Yes" : "None"}</Value>
+            </Item>
+            <Item>
               ABE School
               <Value>{school.abeSchool ? "Yes" : "None"}</Value>
-            </Column>
-            <Column item xs={4}>
-              Junior High Division
+            </Item>
+
+            <Item>
+              Junior High
               <Value>{school.jhsSchool ? "Yes" : "None"}</Value>
+            </Item>
+            <Item>
               ALP School
               <Value>{school.alpSchool ? "Yes" : "None"}</Value>
-            </Column>
-            <Column item xs={4}>
-              Elementary Division
+            </Item>
+            <Item>
+              Elementary
               <Value>{school.primarySchool ? "Yes" : "None"}</Value>
+            </Item>
+
+            <Item>
               ECE School
               <Value>{school.eceSchool ? "Yes" : "None"}</Value>
-            </Column>
+            </Item>
           </Row>
+
           <Info>Facilities</Info>
-          <Row container item>
-            <Column item xs={4}>
+          <Row item>
+            <Item>
               Computer Lab
               <Value>N/A</Value>
-            </Column>
-            <Column item xs={4}>
+            </Item>
+            <Item>
               Gymnasium
               <Value>N/A</Value>
-            </Column>
-            <Column item xs={4}>
+            </Item>
+            <Item>
               Laboratory
               <Value>N/A</Value>
-            </Column>
+            </Item>
           </Row>
+
           <Info>Ratings</Info>
-          <Row container item>
-            <Column item xs={4}>
+          <Row item>
+            <Item>
               MOE
               <Value>N/A</Value>
+            </Item>
+            <Item>
               Football
               <Value>N/A</Value>
-            </Column>
-            <Column item xs={4}>
-              WAEC performance
+            </Item>
+
+            <Item>
+              WAEC
               <Value>N/A</Value>
+            </Item>
+
+            <Item>
               Basketball
               <Value>N/A</Value>
-            </Column>
-            <Column item xs={4}>
+            </Item>
+
+            <Item>
               Kickball
               <Value>N/A</Value>
+            </Item>
+            <Item>
               Public
               <Value>N/A</Value>
-            </Column>
+            </Item>
           </Row>
         </Body>
       </Container>
@@ -164,7 +197,6 @@ const Value = styled(SubTitle)`
 const Body = styled(Grid)`
   align-text: left;
   font-weight: 700;
-  padding: 2rem;
   height: 100%;
   margin: 0 auto;
   font-size: 1rem;
@@ -196,17 +228,15 @@ const Anchor = styled.a`
   }
 `;
 
-const Column = styled(Grid)`
-  padding-left: 1rem;
-`;
 const Row = styled(Grid)`
-  padding: 1rem 0rem;
-  margin: 0;
-  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  border: 0.3px solid #002368;
+  padding: 1rem;
 `;
 
 const Info = styled("h1")`
-  border: 1px solid #002368;
   padding: 0.5rem 1rem;
   display: inline-block;
   font-size: 1rem;
@@ -214,6 +244,11 @@ const Info = styled("h1")`
   color: #fff;
   font-weight: 700;
   margin: 0;
+`;
+
+const Item = styled("div")`
+  margin: 0;
+  padding: 0;
 `;
 
 export default SchoolDetails;
