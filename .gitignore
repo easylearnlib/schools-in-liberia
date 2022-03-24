@@ -48,3 +48,7 @@ data/
 .idea
 .DS_Store
 .env
+public/sitemap-0.xml
+public/sitemap.xml
+public/sitemap-1.xml
+public/robots.txt

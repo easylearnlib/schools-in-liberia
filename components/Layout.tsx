@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
   );
 }
 
-const MainLayoutBox = styled.div`
+const MainLayoutBox = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,12 +21,11 @@ const MainLayoutBox = styled.div`
   margin: 0rem auto;
 `;
 
-const Main = styled.main`
+const Main = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 100rem;
-  text-align: center;
   margin: 0 auto;
   min-height: 100vh;
 `;
