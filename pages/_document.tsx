@@ -45,7 +45,7 @@ export default class MyDocument extends Document {
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="%PUBLIC_URL%/apple-touch-icon.png"
+            href="/apple-touch-icon.png"
           />
           <link
             rel="icon"
@@ -64,10 +64,7 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
 
-          <meta
-            property="og:image"
-            content="%PUBLIC_URL%/freddie-marriage.jpg"
-          />
+          <meta property="og:image" content="/freddie-marriage.jpg" />
 
           <link
             rel="stylesheet"
