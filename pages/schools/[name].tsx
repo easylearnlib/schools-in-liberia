@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { NextSeo } from "next-seo";
 import { Grid } from "@mui/material";
 import Link from "next/link";
+import { useState } from "react";
 
 type HomeProps = {
   school: SchoolsInput;
@@ -30,8 +31,7 @@ function SchoolDetails({ school }: HomeProps) {
           direction={"column"}
           sx={{ px: { xs: 0, sm: 1, md: 2, lg: 3 }, py: 3 }}
         >
-          <Info>Description</Info>
-          <Row item>
+          <Section label={"Description"}>
             <Item>
               EMIS
               <Value>{school.emisNumber}</Value>
@@ -57,10 +57,8 @@ function SchoolDetails({ school }: HomeProps) {
               Website
               <Value>N/A</Value>
             </Item>
-          </Row>
-
-          <Info>Additional Info</Info>
-          <Row item>
+          </Section>
+          <Section label={"Additional Info"}>
             <Item>
               Senior High
               <Value>{school.shsSchool ? "Yes" : "None"}</Value>
@@ -91,10 +89,8 @@ function SchoolDetails({ school }: HomeProps) {
               ECE School
               <Value>{school.eceSchool ? "Yes" : "None"}</Value>
             </Item>
-          </Row>
-
-          <Info>Facilities</Info>
-          <Row item>
+          </Section>
+          <Section label={"Facilities"}>
             <Item>
               Computer Lab
               <Value>N/A</Value>
@@ -107,19 +103,17 @@ function SchoolDetails({ school }: HomeProps) {
               Laboratory
               <Value>N/A</Value>
             </Item>
-          </Row>
-
-          <Info>Ratings</Info>
-          <Row item>
+          </Section>
+          <Section label={"Rating"}>
             <Item>
               MOE
               <Value>N/A</Value>
             </Item>
+
             <Item>
-              Football
+              Public
               <Value>N/A</Value>
             </Item>
-
             <Item>
               WAEC
               <Value>N/A</Value>
@@ -135,12 +129,37 @@ function SchoolDetails({ school }: HomeProps) {
               <Value>N/A</Value>
             </Item>
             <Item>
-              Public
+              Football
               <Value>N/A</Value>
             </Item>
-          </Row>
+          </Section>
         </Body>
       </Container>
+    </>
+  );
+}
+
+type SectionProps = {
+  label: string;
+  children: React.ReactNode;
+};
+
+function Section(props: SectionProps) {
+  const { label, children } = props;
+
+  const [details, toggleDetails] = useState(true);
+
+  const handleClick = () => toggleDetails(!details);
+
+  return (
+    <>
+      <Info onClick={handleClick}>
+        <Label>{label}</Label>
+        <Icon aria-label="open section" tabIndex={0}>
+          {details ? "-" : "+"}
+        </Icon>
+      </Info>
+      {details && <Row item>{children}</Row>}
     </>
   );
 }
@@ -196,7 +215,6 @@ const Value = styled(SubTitle)`
 
 const Body = styled(Grid)`
   align-text: left;
-  font-weight: 700;
   height: 100%;
   margin: 0 auto;
   font-size: 1rem;
@@ -217,7 +235,6 @@ const Anchor = styled.a`
   font-size: 0.9rem;
   background: #fff;
   color: rgba(0, 46, 162, 1);
-  font-weight: 700;
 
   &:visited {
     color: rgba(0, 0, 0, 0.87);
@@ -232,23 +249,35 @@ const Row = styled(Grid)`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.5rem;
-  border: 0.3px solid #002368;
+  border: 1px solid #ccc;
   padding: 1rem;
 `;
 
-const Info = styled("h1")`
+const Info = styled("div")<{ onClick: () => void }>`
   padding: 0.5rem 1rem;
   display: inline-block;
   font-size: 1rem;
-  background: #002368;
-  color: #fff;
-  font-weight: 700;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid #ccc;
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 `;
 
 const Item = styled("div")`
   margin: 0;
   padding: 0;
+`;
+
+const Icon = styled("div")`
+  font-weight: 700;
+`;
+
+const Label = styled("div")`
+  padding: 0;
+  margin: 0;
 `;
 
 export default SchoolDetails;
