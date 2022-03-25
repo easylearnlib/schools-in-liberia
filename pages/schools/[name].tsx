@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { NextSeo } from "next-seo";
 import { Grid } from "@mui/material";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 
 type HomeProps = {
   school: SchoolsInput;
@@ -31,7 +31,7 @@ function SchoolDetails({ school }: HomeProps) {
           direction={"column"}
           sx={{ px: { xs: 0, sm: 1, md: 2, lg: 3 }, py: 3 }}
         >
-          <Section label={"Description"}>
+          <Section label={"Main"}>
             <Item>
               EMIS
               <Value>{school.emisNumber}</Value>
@@ -58,7 +58,7 @@ function SchoolDetails({ school }: HomeProps) {
               <Value>N/A</Value>
             </Item>
           </Section>
-          <Section label={"Additional Info"}>
+          <Section label={"Extra"}>
             <Item>
               Senior High
               <Value>{school.shsSchool ? "Yes" : "None"}</Value>
@@ -104,7 +104,7 @@ function SchoolDetails({ school }: HomeProps) {
               <Value>N/A</Value>
             </Item>
           </Section>
-          <Section label={"Rating"}>
+          <Section label={"Ratings"}>
             <Item>
               MOE
               <Value>N/A</Value>
@@ -150,10 +150,16 @@ function Section(props: SectionProps) {
   const [details, toggleDetails] = useState(true);
 
   const handleClick = () => toggleDetails(!details);
+  const handleKeyPressed = (evt: React.KeyboardEvent) => {
+    // Space or Enter
+    if (evt.key === "Enter" || evt.key === "Space") {
+      toggleDetails(!details);
+    }
+  };
 
   return (
     <>
-      <Info onClick={handleClick}>
+      <Info onClick={handleClick} onKeyUp={(evt) => handleKeyPressed(evt)}>
         <Label>{label}</Label>
         <Icon aria-label="open section" tabIndex={0}>
           {details ? "-" : "+"}
@@ -208,7 +214,7 @@ const SubTitle = styled.h2`
 `;
 
 const Value = styled(SubTitle)`
-  color: rgba(0, 46, 162, 1);
+  color: #01579b;
   margin: 0;
   font-size: 1rem;
 `;
@@ -222,7 +228,7 @@ const Body = styled(Grid)`
 
 const Head = styled(Grid)`
   padding: 2rem 0;
-  background: #002368;
+  background: #01579b;
   color: #fff;
   text-align: center;
 `;
@@ -234,7 +240,7 @@ const Anchor = styled.a`
   display: inline-block;
   font-size: 0.9rem;
   background: #fff;
-  color: rgba(0, 46, 162, 1);
+  color: #01579b;
 
   &:visited {
     color: rgba(0, 0, 0, 0.87);
@@ -253,7 +259,10 @@ const Row = styled(Grid)`
   padding: 1rem;
 `;
 
-const Info = styled("div")<{ onClick: () => void }>`
+const Info = styled("div")<{
+  onClick: () => void;
+  onKeyUp: (evt: KeyboardEvent) => void;
+}>`
   padding: 0.5rem 1rem;
   display: inline-block;
   font-size: 1rem;
@@ -271,11 +280,11 @@ const Item = styled("div")`
   padding: 0;
 `;
 
-const Icon = styled("div")`
+const Icon = styled("span")`
   font-weight: 700;
 `;
 
-const Label = styled("div")`
+const Label = styled("h4")`
   padding: 0;
   margin: 0;
 `;

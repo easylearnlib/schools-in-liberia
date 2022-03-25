@@ -44,7 +44,7 @@ function Home({ schools }: HomeProps) {
           grouping: true,
           sorting: true,
           headerStyle: {
-            backgroundColor: "#002368",
+            backgroundColor: "#01579b",
             color: "#FFF",
             fontWeight: 700,
           },
@@ -87,14 +87,14 @@ const Anchor = styled.a`
 
   &:hover {
     text-decoration: underline;
-    color: rgba(0, 46, 162, 1);
+    color: #01579b;
   }
 `;
 
 const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 700;
-  color: #002368;
+  color: #01579b;
   margin: 0;
 `;
 
