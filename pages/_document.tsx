@@ -64,7 +64,7 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
 
-          <meta property="og:image" content="/freddie-marriage.jpg" />
+          <meta property="og:image" content="/freddie-marriage.png" />
 
           <link
             rel="stylesheet"
