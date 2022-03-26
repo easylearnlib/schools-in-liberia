@@ -39,8 +39,6 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* Meta */}
-          <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#ffffff" />
 
           <link
             rel="apple-touch-icon"
@@ -61,10 +59,6 @@ export default class MyDocument extends Document {
           />
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#ffffff" />
-
-          <meta property="og:image" content="/freddie-marriage.png" />
 
           <link
             rel="stylesheet"
@@ -74,7 +68,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Ubuntu:wght@300;400;700&display=swap"
             rel="stylesheet"
           />
-          <meta name="robots" content="all" />
         </Head>
 
         <body>
