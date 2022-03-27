@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         titleTemplate="Educational institutions in Liberia"
         defaultTitle="Educational institutions in Liberia"
         description="Find all the educational institutions in Liberia and details about location,contacts, facilities, ratings and more"
-        canonical="https://www.studyinliberia.xyz"
+        canonical="https://studyinliberia.xyz"
         openGraph={{
-          url: "https://www.studyinliberia.xyz",
+          url: "https://studyinliberia.xyz",
           title: "Educational institutions in Liberia",
           description:
             "Find all the educational institutions in Liberia and details about location,contacts, facilities, ratings and more",
