@@ -13,7 +13,7 @@ type HomeProps = {
 
 function SchoolDetails({ school }: HomeProps) {
   return (
-    <>
+    <Wrapper>
       <NextSeo title={school.schoolName} titleTemplate={school.schoolName} />
       <Container>
         <Head>
@@ -135,7 +135,7 @@ function SchoolDetails({ school }: HomeProps) {
           </Section>
         </Body>
       </Container>
-    </>
+    </Wrapper>
   );
 }
 
@@ -190,11 +190,17 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
   };
 }
 
+const Wrapper = styled.div`
+  margin: 2rem 0;
+  justify-content: center;
+  width: 100%;
+`;
+
 const Container = styled("div")`
   display: flex;
   flex: 1;
   flex-direction: column;
-  max-width: 60rem;
+  max-width: 80rem;
   width: 100%;
   height: 100%;
   box-shadow: 5px 10px 18px #888888;
@@ -224,6 +230,7 @@ const Body = styled(Grid)`
   height: 100%;
   margin: 0 auto;
   font-size: 1rem;
+  max-width: 60rem;
 `;
 
 const Head = styled(Grid)`
