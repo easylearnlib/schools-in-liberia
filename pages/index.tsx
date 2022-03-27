@@ -118,6 +118,7 @@ const Wrapper = styled.div`
   margin: 2rem 0;
   justify-content: center;
   width: 100%;
+  background: #fff;
 `;
 
 const Anchor = styled.a`

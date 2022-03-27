@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   justify-content: center;
   margin-top: auto;
   width: 100%;
+  box-shadow: 5px 10px 18px #888888;
 `;
 
 const Text = styled.p`

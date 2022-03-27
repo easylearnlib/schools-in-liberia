@@ -21,6 +21,7 @@ const MainLayoutBox = styled.main`
   justify-content: center;
   align-items: center;
   margin: 0rem auto;
+  background: #f3f2ef;
 `;
 
 const Main = styled.div`
