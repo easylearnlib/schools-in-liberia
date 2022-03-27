@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-        <meta property="og:image" content="/freddie-marriage.png" />
         <meta name="robots" content="all" />
       </Head>
       <NextSeo
@@ -28,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             "Find all the educational institutions in Liberia and details about location,contacts, facilities, ratings and more",
           images: [
             {
-              url: "https://www.studyinliberia.xyz/freddie-marriage.png",
+              url: "https://studyinliberia.xyz/freddie-marriage.png",
               width: 800,
               height: 420,
               alt: "Educational institutions in Liberia",
