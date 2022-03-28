@@ -25,14 +25,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - name: Fetch data
+        env:
+          DRIVE_PAGE_ID: ${{ secrets.DRIVE_PAGE_ID }}
         run: |
           sudo apt install python3-pip
           pip install gdown
-          gdown https://drive.google.com/uc?id="$DRIVE_PAGE_ID"
+          gdown https://drive.google.com/uc?id=$DRIVE_PAGE_ID
           mkdir data
           mv schools.json data
-        env:
-          DRIVE_PAGE_ID: ${{ secrets.DRIVE_PAGE_ID }}
       - name: Install nextjs dependencies and build applications
         run: |
           npm install
