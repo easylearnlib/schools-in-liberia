@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Paper } from "@mui/material";
-import Link from "next/Link";
+import Link from "next/link";
 
 export default function Footer() {
   return (
