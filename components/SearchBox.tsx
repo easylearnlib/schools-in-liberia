@@ -35,12 +35,13 @@ export default function SearchBox(props: Props) {
   };
 
   return (
-    <Wrapper>
+    <>
       <Container
         sx={{
           flexDirection: { xs: "column", md: "row" },
           alignItems: { md: "center" },
           p: 1,
+          px: { xs: "1rem", md: "4rem" },
           justifyContent: { xs: "flex-start", md: "space-between" },
           flexWrap: "wrap",
         }}
@@ -56,6 +57,7 @@ export default function SearchBox(props: Props) {
             <Option value={"schoolName"}>Name</Option>
             <Option value={"schoolType"}>Type</Option>
             <Option value={"county"}>County</Option>
+            <Option value={"emisNumber"}>Rating</Option>
           </Select>
         </FlexLeft>
         <FlexRight
@@ -90,18 +92,14 @@ export default function SearchBox(props: Props) {
           <List></List>
         </Box>
       </SwipeableDrawer>
-    </Wrapper>
+    </>
   );
 }
 
-const Wrapper = styled(Box)`
-  width: 100%;
-`;
-
 const Container = styled(Box)`
   display: flex;
-  box-shadow: 5px 10px 18px #888888;
   min-height: 8rem;
+  border: 1px solid #ccc;
 `;
 
 const FlexLeft = styled(Box)`

@@ -5,9 +5,11 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/system";
 
-const AppContainer = styled(AppBar)``;
+const AppContainer = styled(AppBar)`
+  background: #fff;
+`;
 const NavContainer = styled(Box)`
-  max-width: 80rem;
+  max-width: 60rem;
   margin: 0 auto;
   width: 100%;
   color: #01579b;

@@ -1,12 +1,9 @@
 import data from "../data/schools.json";
 import { SchoolsInput } from "../models";
 import styled from "styled-components";
-import MaterialTable from "material-table";
-import { slugify } from "../utilities";
-import Link from "next/link";
 import Footer from "../components/Footer";
 import React, { useReducer } from "react";
-import { SearchBox } from "../components";
+import { Pagination, School, SearchBox } from "../components";
 
 export type Action = {
   type: string;
@@ -45,6 +42,8 @@ function reducer(state: State, action: Action): State {
 
 function Home({ schools }: HomeProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [page, setPage] = React.useState(1);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const filteredSchools = schools.filter((school) =>
     school.schoolName.toLowerCase().includes(state.search.toLowerCase())
@@ -56,42 +55,25 @@ function Home({ schools }: HomeProps) {
       a[state.sortBy].localeCompare(b[state.sortBy])
   );
 
-  const columns = [
-    {
-      title: "EMIS Number",
-      field: "emisNumber",
-    },
-    {
-      title: "School Name",
-      field: "schoolName",
-      render: (rowData: SchoolsInput) => (
-        <Link href={`/schools/${slugify(rowData.schoolName)}`} passHref>
-          <Anchor>{rowData.schoolName}</Anchor>
-        </Link>
-      ),
-    },
-    { title: "School Type", field: "schoolType" },
-    { title: "District", field: "district" },
-    { title: "County", field: "county" },
-  ];
+  let startPoint = (page - 1) * rowsPerPage;
+
+  const PaginatedSchools = sortedSchools.slice(
+    startPoint,
+    startPoint + rowsPerPage
+  );
 
   return (
     <Wrapper>
       <SearchBox dispatch={dispatch} />
-      <MaterialTable
-        columns={columns}
-        data={sortedSchools}
-        title={<Title>Liberia School System</Title>}
-        options={{
-          pageSize: 20,
-          pageSizeOptions: [20, 50, 100, 150, 200],
-          toolbar: false,
-          headerStyle: {
-            backgroundColor: "#01579b",
-            color: "#FFF",
-            fontWeight: 700,
-          },
-        }}
+      {PaginatedSchools.map((school) => (
+        <School school={school} />
+      ))}
+      <Pagination
+        page={page}
+        setPage={setPage}
+        rowsPerPage={rowsPerPage}
+        setRowsPerPage={setRowsPerPage}
+        size={sortedSchools.length}
       />
       <Footer />
     </Wrapper>
@@ -99,47 +81,19 @@ function Home({ schools }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const schools = data.map((item) => ({
-    emisNumber: item.emisNumber,
-    schoolName: item.schoolName,
-    schoolType: item.schoolType,
-    district: item.district,
-    county: item.county,
-  }));
-
   return {
     props: {
-      schools,
+      schools: data,
     },
   };
 }
 
 const Wrapper = styled.div`
-  margin: 2rem 0;
+  margin-top: 2rem;
   justify-content: center;
+  box-shadow: 5px 10px 18px #888888;
   width: 100%;
   background: #fff;
-`;
-
-const Anchor = styled.a`
-  color: rgba(0, 0, 0, 0.87);
-  cursor: pointer;
-
-  &:visited {
-    color: rgba(0, 0, 0, 0.87);
-  }
-
-  &:hover {
-    text-decoration: underline;
-    color: #01579b;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #01579b;
-  margin: 0;
 `;
 
 export default Home;

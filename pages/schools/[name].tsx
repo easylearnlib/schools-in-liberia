@@ -191,7 +191,7 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
 }
 
 const Wrapper = styled.div`
-  margin: 2rem 0;
+  margin-top: 2rem;
   justify-content: center;
   width: 100%;
   background: #fff;
@@ -201,7 +201,7 @@ const Container = styled("div")`
   display: flex;
   flex: 1;
   flex-direction: column;
-  max-width: 80rem;
+  max-width: 60rem;
   width: 100%;
   height: 100%;
   box-shadow: 5px 10px 18px #888888;
