@@ -34,6 +34,8 @@ const NavBar = () => {
               flexGrow: 1,
               display: { xs: "flex", md: "none" },
               fontWeight: "bold",
+              p: 1,
+              py: 3,
             }}
           >
             Liberia School System

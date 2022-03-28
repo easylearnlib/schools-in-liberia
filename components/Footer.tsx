@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Paper } from "@mui/material";
 
 export default function Footer() {
   return (
@@ -11,8 +12,9 @@ export default function Footer() {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled(Paper)`
   display: flex;
+  max-width: 60rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;

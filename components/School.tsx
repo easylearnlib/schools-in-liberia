@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import styled from "styled-components";
 import { SchoolsInput } from "../models";
 import Link from "next/link";
@@ -35,7 +35,7 @@ const Wrapper = styled(Box)`
 `;
 
 const Container = styled(Box)`
-  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
   padding: 2rem;
 `;
 

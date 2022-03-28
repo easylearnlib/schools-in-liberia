@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
+import Paper from "@mui/material/Paper";
 import styled from "styled-components";
 import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
@@ -35,7 +36,7 @@ export default function SearchBox(props: Props) {
   };
 
   return (
-    <>
+    <Paper sx={{ m: "0.5rem 0rem" }}>
       <Container
         sx={{
           flexDirection: { xs: "column", md: "row" },
@@ -92,14 +93,13 @@ export default function SearchBox(props: Props) {
           <List></List>
         </Box>
       </SwipeableDrawer>
-    </>
+    </Paper>
   );
 }
 
 const Container = styled(Box)`
   display: flex;
   min-height: 8rem;
-  border: 1px solid #ccc;
 `;
 
 const FlexLeft = styled(Box)`

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ export default function Layout({ children }: LayoutProps) {
     <MainLayoutBox>
       <NavBar />
       <Main>{children}</Main>
+      <Footer />
     </MainLayoutBox>
   );
 }

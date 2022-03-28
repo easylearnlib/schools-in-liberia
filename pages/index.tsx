@@ -1,9 +1,9 @@
 import data from "../data/schools.json";
 import { SchoolsInput } from "../models";
 import styled from "styled-components";
-import Footer from "../components/Footer";
 import React, { useReducer } from "react";
 import { Pagination, School, SearchBox } from "../components";
+import { Paper } from "@mui/material";
 
 export type Action = {
   type: string;
@@ -43,7 +43,7 @@ function reducer(state: State, action: Action): State {
 function Home({ schools }: HomeProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [page, setPage] = React.useState(1);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
   const filteredSchools = schools.filter((school) =>
     school.schoolName.toLowerCase().includes(state.search.toLowerCase())
@@ -65,17 +65,18 @@ function Home({ schools }: HomeProps) {
   return (
     <Wrapper>
       <SearchBox dispatch={dispatch} />
-      {PaginatedSchools.map((school) => (
-        <School key={school.emisNumber} school={school} />
-      ))}
-      <Pagination
-        page={page}
-        setPage={setPage}
-        rowsPerPage={rowsPerPage}
-        setRowsPerPage={setRowsPerPage}
-        size={sortedSchools.length}
-      />
-      <Footer />
+      <Paper>
+        {PaginatedSchools.map((school) => (
+          <School key={school.emisNumber} school={school} />
+        ))}
+        <Pagination
+          page={page}
+          setPage={setPage}
+          rowsPerPage={rowsPerPage}
+          setRowsPerPage={setRowsPerPage}
+          size={sortedSchools.length}
+        />
+      </Paper>
     </Wrapper>
   );
 }
@@ -89,11 +90,9 @@ export async function getStaticProps() {
 }
 
 const Wrapper = styled.div`
-  margin-top: 2rem;
+  margin: 0.5rem 0;
   justify-content: center;
-  box-shadow: 5px 10px 18px #888888;
   width: 100%;
-  background: #fff;
 `;
 
 export default Home;

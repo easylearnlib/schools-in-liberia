@@ -3,7 +3,7 @@ import { SchoolsInput } from "../../models";
 import { slugify } from "../../utilities";
 import styled from "styled-components";
 import { NextSeo } from "next-seo";
-import { Grid } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import Link from "next/link";
 import { useState, KeyboardEvent } from "react";
 
@@ -16,124 +16,129 @@ function SchoolDetails({ school }: HomeProps) {
     <Wrapper>
       <NextSeo title={school.schoolName} titleTemplate={school.schoolName} />
       <Container>
-        <Head>
-          <Title>{school.schoolName}</Title>
-          <SubTitle>
-            {school.district} District - {school.county} County
-          </SubTitle>
-          <SubTitle>Liberia</SubTitle>
-          <Link href={"/"} passHref>
-            <Anchor>Return to home page</Anchor>
-          </Link>
-        </Head>
-        <Body
-          container
-          direction={"column"}
-          sx={{ px: { xs: 0, sm: 1, md: 2, lg: 3 }, py: 3 }}
-        >
-          <Section label={"Main"}>
-            <Item>
-              EMIS
-              <Value>{school.emisNumber}</Value>
-            </Item>
-            <Item>
-              School Type
-              <Value>{school.schoolType}</Value>
-            </Item>
-            <Item>
-              Phone
-              <Value>N/A</Value>
-            </Item>
+        <Paper>
+          <Head>
+            <Title>{school.schoolName}</Title>
+            <SubTitle>
+              {school.district} District - {school.county} County
+            </SubTitle>
+            <SubTitle>Liberia</SubTitle>
+            <Link href={"/"} passHref>
+              <Anchor>Return to home page</Anchor>
+            </Link>
+          </Head>
+        </Paper>
 
-            <Item>
-              Email
-              <Value>N/A</Value>
-            </Item>
-            <Item>
-              Address
-              <Value>N/A</Value>
-            </Item>
-            <Item>
-              Website
-              <Value>N/A</Value>
-            </Item>
-          </Section>
-          <Section label={"Extra"}>
-            <Item>
-              Senior High
-              <Value>{school.shsSchool ? "Yes" : "None"}</Value>
-            </Item>
-            <Item>
-              TVET School
-              <Value>{school.tvetSchool ? "Yes" : "None"}</Value>
-            </Item>
-            <Item>
-              ABE School
-              <Value>{school.abeSchool ? "Yes" : "None"}</Value>
-            </Item>
+        <Paper>
+          <Body
+            container
+            direction={"column"}
+            sx={{ px: { xs: 0, sm: 1, md: 2, lg: 3 }, py: 3 }}
+          >
+            <Section label={"Main"}>
+              <Item>
+                EMIS
+                <Value>{school.emisNumber}</Value>
+              </Item>
+              <Item>
+                School Type
+                <Value>{school.schoolType}</Value>
+              </Item>
+              <Item>
+                Phone
+                <Value>N/A</Value>
+              </Item>
 
-            <Item>
-              Junior High
-              <Value>{school.jhsSchool ? "Yes" : "None"}</Value>
-            </Item>
-            <Item>
-              ALP School
-              <Value>{school.alpSchool ? "Yes" : "None"}</Value>
-            </Item>
-            <Item>
-              Elementary
-              <Value>{school.primarySchool ? "Yes" : "None"}</Value>
-            </Item>
+              <Item>
+                Email
+                <Value>N/A</Value>
+              </Item>
+              <Item>
+                Address
+                <Value>N/A</Value>
+              </Item>
+              <Item>
+                Website
+                <Value>N/A</Value>
+              </Item>
+            </Section>
+            <Section label={"Extra"}>
+              <Item>
+                Senior High
+                <Value>{school.shsSchool ? "Yes" : "None"}</Value>
+              </Item>
+              <Item>
+                TVET School
+                <Value>{school.tvetSchool ? "Yes" : "None"}</Value>
+              </Item>
+              <Item>
+                ABE School
+                <Value>{school.abeSchool ? "Yes" : "None"}</Value>
+              </Item>
 
-            <Item>
-              ECE School
-              <Value>{school.eceSchool ? "Yes" : "None"}</Value>
-            </Item>
-          </Section>
-          <Section label={"Facilities"}>
-            <Item>
-              Computer Lab
-              <Value>N/A</Value>
-            </Item>
-            <Item>
-              Gymnasium
-              <Value>N/A</Value>
-            </Item>
-            <Item>
-              Laboratory
-              <Value>N/A</Value>
-            </Item>
-          </Section>
-          <Section label={"Ratings"}>
-            <Item>
-              MOE
-              <Value>N/A</Value>
-            </Item>
+              <Item>
+                Junior High
+                <Value>{school.jhsSchool ? "Yes" : "None"}</Value>
+              </Item>
+              <Item>
+                ALP School
+                <Value>{school.alpSchool ? "Yes" : "None"}</Value>
+              </Item>
+              <Item>
+                Elementary
+                <Value>{school.primarySchool ? "Yes" : "None"}</Value>
+              </Item>
 
-            <Item>
-              Public
-              <Value>N/A</Value>
-            </Item>
-            <Item>
-              WAEC
-              <Value>N/A</Value>
-            </Item>
+              <Item>
+                ECE School
+                <Value>{school.eceSchool ? "Yes" : "None"}</Value>
+              </Item>
+            </Section>
+            <Section label={"Facilities"}>
+              <Item>
+                Computer Lab
+                <Value>N/A</Value>
+              </Item>
+              <Item>
+                Gymnasium
+                <Value>N/A</Value>
+              </Item>
+              <Item>
+                Laboratory
+                <Value>N/A</Value>
+              </Item>
+            </Section>
+            <Section label={"Ratings"}>
+              <Item>
+                MOE
+                <Value>N/A</Value>
+              </Item>
 
-            <Item>
-              Basketball
-              <Value>N/A</Value>
-            </Item>
+              <Item>
+                Public
+                <Value>N/A</Value>
+              </Item>
+              <Item>
+                WAEC
+                <Value>N/A</Value>
+              </Item>
 
-            <Item>
-              Kickball
-              <Value>N/A</Value>
-            </Item>
-            <Item>
-              Football
-              <Value>N/A</Value>
-            </Item>
-          </Section>
-        </Body>
+              <Item>
+                Basketball
+                <Value>N/A</Value>
+              </Item>
+
+              <Item>
+                Kickball
+                <Value>N/A</Value>
+              </Item>
+              <Item>
+                Football
+                <Value>N/A</Value>
+              </Item>
+            </Section>
+          </Body>
+        </Paper>
       </Container>
     </Wrapper>
   );
@@ -191,10 +196,9 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
 }
 
 const Wrapper = styled.div`
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   justify-content: center;
   width: 100%;
-  background: #fff;
 `;
 
 const Container = styled("div")`
@@ -204,7 +208,6 @@ const Container = styled("div")`
   max-width: 60rem;
   width: 100%;
   height: 100%;
-  box-shadow: 5px 10px 18px #888888;
   padding-bottom: 2rem;
   margin: 0 auto;
 `;
@@ -274,7 +277,6 @@ const Info = styled("div")<{
   padding: 0.5rem 1rem;
   display: inline-block;
   font-size: 1rem;
-  background: rgba(0, 0, 0, 0.04);
   border: 1px solid #ccc;
   margin: 0;
   display: flex;
