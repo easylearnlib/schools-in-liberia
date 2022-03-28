@@ -66,7 +66,7 @@ function Home({ schools }: HomeProps) {
     <Wrapper>
       <SearchBox dispatch={dispatch} />
       {PaginatedSchools.map((school) => (
-        <School school={school} />
+        <School key={school.emisNumber} school={school} />
       ))}
       <Pagination
         page={page}
