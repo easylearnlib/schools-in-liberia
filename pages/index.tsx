@@ -4,15 +4,37 @@ import styled from "styled-components";
 import React, { useReducer } from "react";
 import { Pagination, School, SearchBox } from "../components";
 import { Paper } from "@mui/material";
+import { noFilteredApply } from "../helpers";
+
+type FilterType = {
+  selectedCounties: string[];
+  selectedSchoolType: string[];
+  selectedRatings: string[];
+  selectedFacilities: string[];
+};
+
+const initialFilter: FilterType = {
+  selectedCounties: [],
+  selectedSchoolType: [],
+  selectedRatings: [],
+  selectedFacilities: [],
+};
 
 export type Action = {
   type: string;
-  value: string | "emisNumber" | "schoolName" | "schoolType" | "county";
+  value:
+    | string
+    | "emisNumber"
+    | "schoolName"
+    | "schoolType"
+    | "county"
+    | FilterType;
 };
 
 export type State = {
   search: string;
   sortBy: "emisNumber" | "schoolName" | "schoolType" | "county";
+  filterBy: FilterType;
 };
 
 type HomeProps = {
@@ -22,17 +44,23 @@ type HomeProps = {
 const initialState: State = {
   search: "",
   sortBy: "emisNumber",
+  filterBy: initialFilter,
 };
 
 function reducer(state: State, action: Action): State {
   let newState: State;
   switch (action.type) {
     case "search":
+      // @ts-ignore
       newState = { ...state, search: action.value };
       break;
     case "sortBy":
       // @ts-ignore
       newState = { ...state, sortBy: action.value };
+      break;
+    case "filterBy":
+      // @ts-ignore
+      newState = { ...state, filterBy: action.value };
       break;
     default:
       throw new Error();
@@ -45,7 +73,29 @@ function Home({ schools }: HomeProps) {
   const [page, setPage] = React.useState(1);
   const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-  const filteredSchools = schools.filter((school) =>
+  const PrimaryFilter = schools.filter((school) => {
+    const {
+      selectedCounties,
+      selectedSchoolType,
+      selectedRatings,
+      selectedFacilities,
+    } = state.filterBy;
+    if (
+      noFilteredApply(
+        selectedCounties,
+        selectedSchoolType,
+        selectedRatings,
+        selectedFacilities
+      )
+    )
+      return true;
+    return (
+      selectedCounties.includes(school.county) ||
+      selectedSchoolType.includes(school.schoolType)
+    );
+  });
+
+  const filteredSchools = PrimaryFilter.filter((school) =>
     school.schoolName.toLowerCase().includes(state.search.toLowerCase())
   );
 

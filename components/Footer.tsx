@@ -37,7 +37,7 @@ const Text = styled.p`
     margin-top: 2rem;
   }
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 const Anchor = styled.a`
