@@ -6,7 +6,8 @@ export default function Footer() {
   return (
     <Wrapper>
       <Text>+231777298772</Text>
-      <Text>nouhanjabateh@gmail.com</Text>
+      <Text>solodolley@gmail.com/nouhanjabateh@gmail.com</Text>
+      <Text>https://github.com/omarudolley/schools-in-liberia</Text>
       <Text>powered by Shine Liberia</Text>
     </Wrapper>
   );
