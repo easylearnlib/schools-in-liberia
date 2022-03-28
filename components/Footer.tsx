@@ -1,13 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { Paper } from "@mui/material";
+import Link from "next/Link";
 
 export default function Footer() {
   return (
     <Wrapper>
       <Text>+231777298772</Text>
       <Text>solodolley@gmail.com/nouhanjabateh@gmail.com</Text>
-      <Text>https://github.com/omarudolley/schools-in-liberia</Text>
+      <Text>
+        <Link href={"https://github.com/omarudolley/schools-in-liberia"}>
+          <Anchor target="_blank">
+            https://github.com/omarudolley/schools-in-liberia
+          </Anchor>
+        </Link>
+      </Text>
       <Text>powered by Shine Liberia</Text>
     </Wrapper>
   );
@@ -31,4 +38,14 @@ const Text = styled.p`
   }
   margin: 0;
   font-size: 1.2rem;
+`;
+
+const Anchor = styled.a`
+  color: #01579b;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
