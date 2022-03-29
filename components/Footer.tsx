@@ -9,7 +9,10 @@ export default function Footer() {
       <Text>+231777298772</Text>
       <Text>solodolley@gmail.com/nouhanjabateh@gmail.com</Text>
       <Text>
-        <Link href={"https://github.com/omarudolley/schools-in-liberia"}>
+        <Link
+          passHref
+          href={"https://github.com/omarudolley/schools-in-liberia"}
+        >
           <Anchor target="_blank">
             https://github.com/omarudolley/schools-in-liberia
           </Anchor>

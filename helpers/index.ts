@@ -52,8 +52,8 @@ export function doFilter(
 }
 
 export function doSort(filteredResult: SchoolsInput[], sortBy: string) {
-  // @ts-ignore
   filteredResult.sort((a: SchoolsInput, b: SchoolsInput) =>
+    // @ts-ignore
     a[sortBy].localeCompare(b[sortBy])
   );
   return filteredResult;
