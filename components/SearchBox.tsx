@@ -45,7 +45,16 @@ export default function SearchBox(props: Props) {
 
   const handleFilter = () => {
     dispatch({ type: "filterBy", value: filterState });
-    setFilterState(initialState);
+  };
+
+  const handleReset = () => {
+    setFilterState({
+      ...filterState,
+      selectedSchoolType: [],
+      selectedRatings: [],
+      selectedFacilities: [],
+      selectedCounties: [],
+    });
   };
 
   const handleCountyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -152,11 +161,9 @@ export default function SearchBox(props: Props) {
         anchor={"right"}
         open={drawer}
         onClose={() => {
-          setFilterState(initialState);
           setDrawer(false);
         }}
         onOpen={() => {
-          setFilterState(initialState);
           setDrawer(true);
         }}
       >
@@ -270,7 +277,7 @@ export default function SearchBox(props: Props) {
           </List>
           <Divider />
           <List sx={{ textAlign: "right" }}>
-            <Button onClick={() => setFilterState(initialState)}>Reset</Button>
+            <Button onClick={handleReset}>Reset</Button>
             <Button onClick={handleFilter}>Show results</Button>
           </List>
         </Box>
