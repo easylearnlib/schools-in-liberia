@@ -10,18 +10,12 @@ import Button from "@mui/material/Button";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Action } from "../pages";
+import { ActionType, SelectedType } from "../models";
 import { insertElement } from "../helpers";
-
-type SelectedType = {
-  selectedCounties: string[];
-  selectedSchoolType: string[];
-  selectedRatings: string[];
-  selectedFacilities: string[];
-};
+import MultiFilter from "./MultiFilter";
 
 type Props = {
-  dispatch: React.Dispatch<Action>;
+  dispatch: React.Dispatch<ActionType>;
 };
 
 const initialState: SelectedType = {
@@ -33,8 +27,7 @@ const initialState: SelectedType = {
 
 export default function SearchBox(props: Props) {
   const { dispatch } = props;
-
-  const [filterState, setFilterState] = React.useState(initialState);
+  const [drawer, setDrawer] = React.useState(false);
 
   const handleSort = (evt: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch({ type: "sortBy", value: evt.target.value });
@@ -42,67 +35,6 @@ export default function SearchBox(props: Props) {
   const handleSearch = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "search", value: evt.currentTarget.value });
   };
-
-  const handleFilter = (evt: React.MouseEvent) => {
-    dispatch({ type: "filterBy", value: filterState });
-    toggleDrawer(evt);
-  };
-
-  const handleReset = () => {
-    setFilterState({
-      ...filterState,
-      selectedSchoolType: [],
-      selectedRatings: [],
-      selectedFacilities: [],
-      selectedCounties: [],
-    });
-  };
-
-  const handleCountyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newArray = insertElement(
-      filterState.selectedCounties,
-      event.target.name
-    );
-    setFilterState({
-      ...filterState,
-      selectedCounties: newArray,
-    });
-  };
-  const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newArray = insertElement(
-      filterState.selectedSchoolType,
-      event.target.name
-    );
-    setFilterState({
-      ...filterState,
-      selectedSchoolType: newArray,
-    });
-  };
-
-  const handleFacilitiesChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const newArray = insertElement(
-      filterState.selectedFacilities,
-      event.target.name
-    );
-    setFilterState({
-      ...filterState,
-      selectedFacilities: newArray,
-    });
-  };
-  const handleRatingsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newArray = insertElement(
-      filterState.selectedRatings,
-      event.target.name
-    );
-    setFilterState({
-      ...filterState,
-      selectedRatings: newArray,
-    });
-  };
-
-  const [drawer, setDrawer] = React.useState(false);
 
   const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
@@ -158,135 +90,15 @@ export default function SearchBox(props: Props) {
           </MuiButton>
         </FlexRight>
       </Container>
-      <SwipeableDrawer
-        anchor={"right"}
-        open={drawer}
-        onClose={() => {
-          setDrawer(false);
-        }}
-        onOpen={() => {
-          setDrawer(true);
-        }}
-      >
-        <Box
-          sx={{ width: { xs: 250, lg: 500 }, py: 8, px: { xs: 1, md: 3 } }}
-          role="presentation"
-        >
-          <Divider />
-          <List>
-            Counties:
-            <MuiFormGroup>
-              {[
-                "Bomi",
-                "Montserrado",
-                "Grand Bassa",
-                "Margibi",
-                "Lofa",
-                "Sinoe",
-                "River Gee",
-                "River Cess",
-                "Nimba",
-                "Gbarpolu",
-                "Bong",
-                "Grand Cape Mount",
-                "Grand Gedeh",
-                "Grand Kru",
-                "Maryland",
-              ].map((county) => (
-                <FormControlLabel
-                  key={county}
-                  control={
-                    <Checkbox
-                      checked={filterState.selectedCounties.includes(county)}
-                      name={county}
-                      onChange={handleCountyChange}
-                      inputProps={{ "aria-label": "controlled" }}
-                    />
-                  }
-                  label={county}
-                />
-              ))}
-            </MuiFormGroup>
-          </List>
-          <Divider />
-          <List>
-            School Type:
-            <MuiFormGroup>
-              {["Private", "Public", "Faith", "Community"].map((type) => (
-                <FormControlLabel
-                  key={type}
-                  control={
-                    <Checkbox
-                      checked={filterState.selectedSchoolType.includes(type)}
-                      name={type}
-                      onChange={handleTypeChange}
-                      inputProps={{ "aria-label": "controlled" }}
-                    />
-                  }
-                  label={type}
-                />
-              ))}
-            </MuiFormGroup>
-          </List>
-          <Divider />
-          <List>
-            Facilities:
-            <MuiFormGroup>
-              {["Computer Labs", "Gymnasium", "Laboratory"].map((facility) => (
-                <FormControlLabel
-                  key={facility}
-                  control={
-                    <Checkbox
-                      checked={filterState.selectedFacilities.includes(
-                        facility
-                      )}
-                      name={facility}
-                      onChange={handleFacilitiesChange}
-                      inputProps={{ "aria-label": "controlled" }}
-                    />
-                  }
-                  label={facility}
-                />
-              ))}
-            </MuiFormGroup>
-          </List>
-          <Divider />
-          <List>
-            Ratings:
-            <MuiFormGroup>
-              {["10", "9", "8", "7", "6", "5", "4", "3", "2", "1"].map(
-                (rating) => (
-                  <FormControlLabel
-                    key={rating}
-                    control={
-                      <Checkbox
-                        checked={filterState.selectedRatings.includes(rating)}
-                        name={rating}
-                        onChange={handleRatingsChange}
-                        inputProps={{ "aria-label": "controlled" }}
-                      />
-                    }
-                    label={rating}
-                  />
-                )
-              )}
-            </MuiFormGroup>
-          </List>
-          <Divider />
-          <List sx={{ textAlign: "right" }}>
-            <Button onClick={handleReset}>Reset</Button>
-            <Button onClick={handleFilter}>Show results</Button>
-          </List>
-        </Box>
-      </SwipeableDrawer>
+      <MultiFilter
+        dispatch={dispatch}
+        drawer={drawer}
+        setDrawer={setDrawer}
+        toggleDrawer={toggleDrawer}
+      />
     </Paper>
   );
 }
-const MuiFormGroup = styled(FormGroup)`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 150px);
-  gap: 0.5rem;
-`;
 
 const Container = styled(Box)`
   display: flex;

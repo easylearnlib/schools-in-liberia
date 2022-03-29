@@ -20,3 +20,34 @@ export interface SchoolsInput {
   contactNumber?: number[];
   images?: string[];
 }
+
+export type FilterType = {
+  selectedCounties: string[];
+  selectedSchoolType: string[];
+  selectedRatings: string[];
+  selectedFacilities: string[];
+};
+
+export type ActionType = {
+  type: string;
+  value:
+    | string
+    | "emisNumber"
+    | "schoolName"
+    | "schoolType"
+    | "county"
+    | FilterType;
+};
+
+export type StateType = {
+  search: string;
+  sortBy: "emisNumber" | "schoolName" | "schoolType" | "county";
+  filterBy: FilterType;
+};
+
+export type SelectedType = {
+  selectedCounties: string[];
+  selectedSchoolType: string[];
+  selectedRatings: string[];
+  selectedFacilities: string[];
+};
