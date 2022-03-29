@@ -35,7 +35,6 @@ export default function SearchBox(props: Props) {
   const { dispatch } = props;
 
   const [filterState, setFilterState] = React.useState(initialState);
-  console.log(filterState);
 
   const handleSort = (evt: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch({ type: "sortBy", value: evt.target.value });
@@ -181,19 +180,20 @@ export default function SearchBox(props: Props) {
                 "Lofa",
                 "Sinoe",
                 "River Gee",
-                "Rivercess",
+                "River Cess",
                 "Nimba",
                 "Gbarpolu",
                 "Bong",
-                "Grand cape mount",
+                "Grand Cape Mount",
                 "Grand Gedeh",
-                "Grand kru",
+                "Grand Kru",
                 "Maryland",
               ].map((county) => (
                 <FormControlLabel
                   key={county}
                   control={
                     <Checkbox
+                      checked={filterState.selectedCounties.includes(county)}
                       name={county}
                       onChange={handleCountyChange}
                       inputProps={{ "aria-label": "controlled" }}
@@ -213,6 +213,7 @@ export default function SearchBox(props: Props) {
                   key={type}
                   control={
                     <Checkbox
+                      checked={filterState.selectedSchoolType.includes(type)}
                       name={type}
                       onChange={handleTypeChange}
                       inputProps={{ "aria-label": "controlled" }}
@@ -232,6 +233,9 @@ export default function SearchBox(props: Props) {
                   key={facility}
                   control={
                     <Checkbox
+                      checked={filterState.selectedFacilities.includes(
+                        facility
+                      )}
                       name={facility}
                       onChange={handleFacilitiesChange}
                       inputProps={{ "aria-label": "controlled" }}
@@ -252,6 +256,7 @@ export default function SearchBox(props: Props) {
                     key={rating}
                     control={
                       <Checkbox
+                        checked={filterState.selectedRatings.includes(rating)}
                         name={rating}
                         onChange={handleRatingsChange}
                         inputProps={{ "aria-label": "controlled" }}
@@ -275,7 +280,7 @@ export default function SearchBox(props: Props) {
 }
 const MuiFormGroup = styled(FormGroup)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(auto-fill, 150px);
   gap: 0.5rem;
 `;
 
