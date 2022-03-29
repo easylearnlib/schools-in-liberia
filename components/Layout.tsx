@@ -23,6 +23,7 @@ const MainLayoutBox = styled.main`
   justify-content: center;
   align-items: center;
   margin: 0rem auto;
+  min-height: 100vh;
   background: #f3f2ef;
 `;
 
@@ -32,5 +33,4 @@ const Main = styled.div`
   width: 100%;
   max-width: 60rem;
   margin: 0 auto;
-  min-height: 100vh;
 `;

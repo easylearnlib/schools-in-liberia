@@ -105,7 +105,7 @@ function Home({ schools }: HomeProps) {
       a[state.sortBy].localeCompare(b[state.sortBy])
   );
 
-  let startPoint = (page - 1) * rowsPerPage;
+  let startPoint = page * rowsPerPage;
 
   const PaginatedSchools = sortedSchools.slice(
     startPoint,

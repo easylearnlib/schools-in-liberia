@@ -29,7 +29,7 @@ function SchoolDetails({ school }: HomeProps) {
           </Head>
         </Paper>
 
-        <Paper>
+        <Paper sx={{ minHeight: "calc(100vh - 24rem)" }}>
           <Body
             container
             direction={"column"}
@@ -196,31 +196,36 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
 }
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 0.5rem;
   justify-content: center;
+  min-height: 100%;
   width: 100%;
 `;
 
 const Container = styled("div")`
   display: flex;
-  flex: 1;
   flex-direction: column;
   max-width: 60rem;
   width: 100%;
   height: 100%;
-  padding-bottom: 2rem;
+  padding-bottom: 0.5rem;
   margin: 0 auto;
 `;
 const Title = styled.h1`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
   margin: 0;
+  padding: 0;
 `;
 
 const SubTitle = styled.h2`
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
 `;
 
 const Value = styled(SubTitle)`
@@ -238,7 +243,7 @@ const Body = styled(Grid)`
 `;
 
 const Head = styled(Grid)`
-  padding: 2rem 0;
+  padding: 1rem 0;
   background: #01579b;
   color: #fff;
   text-align: center;
@@ -247,7 +252,7 @@ const Head = styled(Grid)`
 const Anchor = styled.a`
   cursor: pointer;
   border: 1px solid #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 0.7rem;
   display: inline-block;
   font-size: 0.9rem;
   background: #fff;
