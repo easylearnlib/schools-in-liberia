@@ -43,8 +43,9 @@ export default function SearchBox(props: Props) {
     dispatch({ type: "search", value: evt.currentTarget.value });
   };
 
-  const handleFilter = () => {
+  const handleFilter = (evt: React.MouseEvent) => {
     dispatch({ type: "filterBy", value: filterState });
+    toggleDrawer(evt);
   };
 
   const handleReset = () => {
@@ -170,10 +171,6 @@ export default function SearchBox(props: Props) {
         <Box
           sx={{ width: { xs: 250, lg: 500 }, py: 8, px: { xs: 1, md: 3 } }}
           role="presentation"
-          onClick={(event) => {
-            toggleDrawer(event);
-          }}
-          onKeyDown={(event) => toggleDrawer(event)}
         >
           <Divider />
           <List>
