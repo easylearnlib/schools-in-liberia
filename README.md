@@ -1,34 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## SchoolMass
 
-## Getting Started
+SchoolMass is an open source project which aims to give accurate and up-to-date information about educational institutions in Liberia and details about location,contacts, facilities, ratings and more.
 
-First, run the development server:
+The project is currently managed by [Shine Liberia](https://www.facebook.com/Az40tt/)
 
-```bash
-npm run dev
-# or
-yarn dev
+For more information please contact: nouhanjabateh@gmail.com/+231777298772
+
+The generated site https://studyinliberia.xyz is based on github pages.
+
+## Data
+
+This project uses [Schools list](https://drive.google.com/file/d/1kMRPUeuG7HGjLN-9BCMsTJl8B5J3kJYr/view?usp=sharing) as data source.
+
+## Project structure
+
+This project was bootstrapped with
+[NextJs](https://nextjs.org/).
+
+### Local development
+
+Install dependencies:
+
+```shell
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the application locally, you have to download the data from [Schools list](https://drive.google.com/file/d/1kMRPUeuG7HGjLN-9BCMsTJl8B5J3kJYr/view?usp=sharing) and save it in a folder `data`
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```shell
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+To build and export the application, use
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```shell
+npm build
+```
 
-## Learn More
+### Docker build
 
-To learn more about Next.js, take a look at the following resources:
+Make sure you have docker installed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Build the docker image
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```shell script
+docker build -t my-app .
+```
 
-## Deploy on Vercel
+Run the docker image
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```shell script
+docker run -dit --name my-running-app -p 8080:80 my-app
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The application is served at http://localhost:8080
+
+### How to contribute?
+
+If you have any idea on how to improve this project or you would like to contribute to the technical development, please reach out to us.
+
+Please feel free to fork the project, raise new issues, or make pull requests. All ideas and suggestions are welcome
+
+###License
+
+[MIT](./LICENSE)

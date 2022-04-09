@@ -38,7 +38,7 @@ const NavBar = () => {
               py: 3,
             }}
           >
-            Liberia School System
+            Liberia SchoolMass
           </Typography>
         </Toolbar>
       </NavContainer>
