@@ -1,10 +1,8 @@
-## SchoolMass
+## Schools in Liberia
 
-SchoolMass is an open source project which aims to give accurate and up-to-date information about educational institutions in Liberia and details about location,contacts, facilities, ratings and more.
+Schools in Liberia is an open source project which aims to give accurate and up-to-date information about educational institutions in Liberia and details about location,contacts, facilities, ratings and more.
 
-The project is currently managed by [Shine Liberia](https://www.facebook.com/Az40tt/)
-
-For more information please contact: nouhanjabateh@gmail.com/+231777298772
+For more information please contact: solodolley@gmail.com/+231777298772
 
 The generated site https://studyinliberia.xyz is based on github pages.
 

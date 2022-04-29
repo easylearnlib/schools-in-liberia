@@ -25,7 +25,7 @@ const NavBar = () => {
             component="div"
             sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold" }}
           >
-            Liberia School System
+            Schools in Liberia
           </Typography>
           <Typography
             variant="h4"
@@ -38,7 +38,7 @@ const NavBar = () => {
               py: 3,
             }}
           >
-            Liberia SchoolMass
+            Schools in Liberia
           </Typography>
         </Toolbar>
       </NavContainer>

@@ -18,7 +18,6 @@ export default function Footer() {
           </Anchor>
         </Link>
       </Text>
-      <Text>powered by Shine Liberia</Text>
     </Wrapper>
   );
 }
