@@ -68,16 +68,4 @@ repos:
     rev: 3.9.2
     hooks:
       - id: flake8
-        args: ["--ignore=E501"] # Black is always right
-  - repo: local
-    hooks:
-      - id: pytest
-        name: pytest
-        entry: poetry run pytest
-        files: |
-          (?x)^(
-            scripts/tests|
-            pyproject.toml
-          )
-        language: system
-        pass_filenames: false
+        args: ["--ignore=E501"] 
