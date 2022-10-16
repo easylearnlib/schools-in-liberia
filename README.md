@@ -4,7 +4,7 @@ Schools in Liberia is an open source project which aims to give accurate and up-
 
 For more information please contact: solodolley@gmail.com/+231777298772
 
-The generated site https://studyinliberia.xyz is based on github pages.
+The generated site https://schools.studyinliberia.xyz is based on github pages.
 
 ## Data
 

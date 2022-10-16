@@ -25,7 +25,7 @@ const NavBar = () => {
             component="div"
             sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold" }}
           >
-            Schools in Liberia
+            EDU-LIBERIA
           </Typography>
           <Typography
             variant="h4"
@@ -33,12 +33,13 @@ const NavBar = () => {
             sx={{
               flexGrow: 1,
               display: { xs: "flex", md: "none" },
+              justifyContent: "center",
               fontWeight: "bold",
               p: 1,
               py: 3,
             }}
           >
-            Schools in Liberia
+            EDU-LIBERIA
           </Typography>
         </Toolbar>
       </NavContainer>

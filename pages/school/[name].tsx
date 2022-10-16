@@ -5,7 +5,16 @@ import styled from "styled-components";
 import { NextSeo } from "next-seo";
 import { Grid, Paper } from "@mui/material";
 import Link from "next/link";
-import { useState, KeyboardEvent } from "react";
+import { KeyboardEvent } from "react";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import MuiAccordionSummary, {
+  AccordionSummaryProps,
+} from "@mui/material/AccordionSummary";
 
 type HomeProps = {
   school: SchoolsInput;
@@ -152,26 +161,28 @@ type SectionProps = {
 function Section(props: SectionProps) {
   const { label, children } = props;
 
-  const [details, toggleDetails] = useState(true);
-
-  const handleClick = () => toggleDetails(!details);
-  const handleKeyPressed = (evt: React.KeyboardEvent) => {
-    // Space or Enter
-    if (evt.key === "Enter" || evt.key === "Space") {
-      toggleDetails(!details);
-    }
-  };
+  const AccordionSummary = styled((props: AccordionSummaryProps) => (
+    <MuiAccordionSummary
+      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+      {...props}
+    />
+  ))(({ theme }) => ({
+    backgroundColor: "rgba(0, 0, 0, .03)",
+  }));
 
   return (
-    <>
-      <Info onClick={handleClick} onKeyUp={(evt) => handleKeyPressed(evt)}>
-        <Label>{label}</Label>
-        <Icon aria-label="open section" tabIndex={0}>
-          {details ? "-" : "+"}
-        </Icon>
-      </Info>
-      {details && <Row item>{children}</Row>}
-    </>
+    <Accordion defaultExpanded={true}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls={label}
+        id={label}
+      >
+        <Typography>{label}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Row item>{children}</Row>
+      </AccordionDetails>
+    </Accordion>
   );
 }
 
@@ -271,7 +282,6 @@ const Row = styled(Grid)`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.5rem;
-  border: 1px solid #ccc;
   padding: 1rem;
 `;
 
@@ -293,15 +303,6 @@ const Info = styled("div")<{
 const Item = styled("div")`
   margin: 0;
   padding: 0;
-`;
-
-const Icon = styled("span")`
-  font-weight: 700;
-`;
-
-const Label = styled("h4")`
-  padding: 0;
-  margin: 0;
 `;
 
 export default SchoolDetails;

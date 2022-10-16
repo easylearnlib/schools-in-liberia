@@ -174,6 +174,7 @@ const MuiFormGroup = styled(FormGroup)`
   grid-template-columns: repeat(auto-fill, 10rem);
   justify-content: center;
   gap: 0.5rem;
+  font-size: 0.8rem;
 `;
 
 const Title = styled("h4")`

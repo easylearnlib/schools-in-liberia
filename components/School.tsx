@@ -17,7 +17,7 @@ export default function School(props: Props) {
       <Container>
         <Head>{school.emisNumber}</Head>
         <Head>
-          <Link href={`/schools/${slugify(school.schoolName)}`} passHref>
+          <Link href={`/school/${slugify(school.schoolName)}`} passHref>
             <Anchor>{school.schoolName}</Anchor>
           </Link>
         </Head>

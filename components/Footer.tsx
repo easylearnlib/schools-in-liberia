@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <Wrapper>
-      <Text>+231777298772/+8615857983179</Text>
-      <Text>solodolley@gmail.com/nouhanjabateh@gmail.com/shatino94@protonmail.com</Text>
+      <Text>+231777298772</Text>
+      <Text>smrtchance@gmail.com/nouhanjabateh@gmail.com</Text>
       <Text>
         <Link
           passHref
