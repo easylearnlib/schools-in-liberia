@@ -2,6 +2,7 @@ import data from "../../data/schools.json";
 import { SchoolsInput } from "../../models";
 import { slugify } from "../../utilities";
 import styled from "styled-components";
+import { styled as muiStyled } from "@mui/system";
 import { NextSeo } from "next-seo";
 import { Grid, Paper } from "@mui/material";
 import Link from "next/link";
@@ -161,7 +162,7 @@ type SectionProps = {
 function Section(props: SectionProps) {
   const { label, children } = props;
 
-  const AccordionSummary = styled((props: AccordionSummaryProps) => (
+  const AccordionSummary = muiStyled((props: AccordionSummaryProps) => (
     <MuiAccordionSummary
       expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
       {...props}

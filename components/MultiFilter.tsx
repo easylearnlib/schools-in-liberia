@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
 import styled from "styled-components";
+import { styled as muiStyled } from "@mui/system";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import FormGroup from "@mui/material/FormGroup";
@@ -169,7 +170,7 @@ export default function MultiFilter(props: Props) {
   );
 }
 
-const MuiFormGroup = styled(FormGroup)`
+const MuiFormGroup = muiStyled(FormGroup)`
   display: grid;
   grid-template-columns: repeat(auto-fill, 10rem);
   justify-content: center;
@@ -181,7 +182,7 @@ const Title = styled("h4")`
   margin: 1rem;
 `;
 
-const SearchArea = styled(List)`
+const SearchArea = muiStyled(List)`
   text-align: right;
   margin: 1rem 0;
 

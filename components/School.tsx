@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, Paper, Typography } from "@mui/material";
 import styled from "styled-components";
+import { styled as muiStyled } from "@mui/system";
 import { SchoolsInput } from "../models";
 import Link from "next/link";
 import { slugify } from "../utilities";
@@ -39,13 +40,13 @@ const Container = styled(Box)`
   padding: 2rem;
 `;
 
-const Head = styled(Typography)`
+const Head = muiStyled(Typography)`
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0;
 `;
 
-const Label = styled(Typography)`
+const Label = muiStyled(Typography)`
   margin: 0;
   font-size: 1rem;
 `;
