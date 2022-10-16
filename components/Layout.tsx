@@ -24,7 +24,9 @@ const MainLayoutBox = styled.main`
   align-items: center;
   margin: 0rem auto;
   min-height: 100vh;
-  background: #f3f2ef;
+  background-image: url("/bkg.webp");
+  background-repeat: repeat-y;
+  background-size: contain;
 `;
 
 const Main = styled.div`
@@ -33,4 +35,5 @@ const Main = styled.div`
   width: 100%;
   max-width: 60rem;
   margin: 0 auto;
+  padding: 2rem 0;
 `;
