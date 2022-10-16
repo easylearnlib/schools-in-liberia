@@ -4,6 +4,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/system";
+import Link from "next/link";
+import { slugify } from "../utilities";
 
 const AppContainer = styled(AppBar)`
   background: #fff;
@@ -25,8 +27,11 @@ const NavBar = () => {
             component="div"
             sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold" }}
           >
-            EDU-LIBERIA
+            <Link href={`/`} passHref>
+              <a style={{ textDecoration: "none" }}> EDU-LIBERIA</a>
+            </Link>
           </Typography>
+
           <Typography
             variant="h4"
             component="div"
@@ -39,7 +44,9 @@ const NavBar = () => {
               py: 3,
             }}
           >
-            EDU-LIBERIA
+            <Link href={`/`} passHref>
+              <a style={{ textDecoration: "none" }}> EDU-LIBERIA</a>
+            </Link>
           </Typography>
         </Toolbar>
       </NavContainer>

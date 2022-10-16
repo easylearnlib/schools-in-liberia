@@ -9,13 +9,9 @@ export default function Footer() {
       <Text>+231777298772</Text>
       <Text>smrtchance@gmail.com/nouhanjabateh@gmail.com</Text>
       <Text>
-        <Link
-          passHref
-          href={"https://github.com/omarudolley/schools-in-liberia"}
-        >
-          <Anchor target="_blank">
-            https://github.com/omarudolley/schools-in-liberia
-          </Anchor>
+        powered by
+        <Link passHref href={"https://smartchance.co"}>
+          <Anchor target="_blank">SmartChance</Anchor>
         </Link>
       </Text>
     </Wrapper>
@@ -46,6 +42,7 @@ const Anchor = styled.a`
   color: #01579b;
   cursor: pointer;
   text-decoration: none;
+  margin-left: 0.2rem;
 
   &:hover {
     text-decoration: underline;
