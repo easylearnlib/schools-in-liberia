@@ -5,12 +5,12 @@ specifiers:
   "@emotion/styled": ^11.8.1
   "@material-ui/core": 4.11.3
   "@mui/icons-material": ^5.10.9
-  "@mui/material": ^5.5.2
+  "@mui/material": ^5.10.9
+  "@mui/styled-engine-sc": ^5.10.6
   "@mui/system": ^5.10.9
   "@types/node": ^17.0.21
   "@types/react": 17.0.41
   "@types/styled-components": ^5.1.24
-  ExpandMare: link:@mui/icons-material/ExpandMare
   eslint: 8.11.0
   eslint-config-next: 12.1.0
   next: 12.1.0
@@ -18,7 +18,7 @@ specifiers:
   next-sitemap: ^2.5.14
   react: 17.0.2
   react-dom: 17.0.2
-  styled-components: ^5.3.3
+  styled-components: ^5.3.6
   typescript: 4.6.2
 
 dependencies:
@@ -27,8 +27,8 @@ dependencies:
   "@material-ui/core": 4.11.3_iii63czga2p6yg6i75dft5ao7q
   "@mui/icons-material": 5.10.9_ubqipdn3klc6rubn4hlq35y2n4
   "@mui/material": 5.10.9_652fvdcoln4wfm6vaxlod6m5gi
+  "@mui/styled-engine-sc": 5.10.6_eayongmbiubxhlvsbyl6yact2u
   "@mui/system": 5.10.9_dqrncp4kvzhomrosee47irmm3m
-  ExpandMare: link:@mui/icons-material/ExpandMare
   next: 12.1.0_sfoxds7t5ydpegc3knd667wn6m
   next-seo: 5.6.0_zktdhiadde2q3pnefglgcp7cnq
   react: 17.0.2
@@ -762,6 +762,25 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@mui/styled-engine-sc/5.10.6_eayongmbiubxhlvsbyl6yact2u:
+    resolution:
+      {
+        integrity: sha512-AQIa478w3UI8gmlht7orp96tEJbEN26FiEs9Aee6E+iVTnoyT3b6V/JapgKlITo6rn7tYTSX9iJYwnDTMhbzTg==,
+      }
+    engines: { node: ">=12.0.0" }
+    peerDependencies:
+      "@types/styled-components": ^5.1.14
+      styled-components: ^5.3.1
+    peerDependenciesMeta:
+      "@types/styled-components":
+        optional: true
+    dependencies:
+      "@babel/runtime": 7.19.4
+      "@types/styled-components": 5.1.26
+      prop-types: 15.8.1
+      styled-components: 5.3.6_sfoxds7t5ydpegc3knd667wn6m
+    dev: false
+
   /@mui/styled-engine/5.10.8_eiduz6gn53osuo65buerufurei:
     resolution:
       {
@@ -1039,7 +1058,6 @@ packages:
     dependencies:
       "@types/react": 17.0.41
       hoist-non-react-statics: 3.3.2
-    dev: true
 
   /@types/json5/0.0.29:
     resolution:
@@ -1111,7 +1129,6 @@ packages:
       "@types/hoist-non-react-statics": 3.3.1
       "@types/react": 17.0.41
       csstype: 3.1.1
-    dev: true
 
   /@typescript-eslint/parser/5.40.0_ynv3edxl3ah44xwgrna2g2yine:
     resolution:
