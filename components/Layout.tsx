@@ -5,12 +5,24 @@ import Footer from "./Footer";
 
 type LayoutProps = {
   children: React.ReactNode;
+  showNav?: boolean;
+  showSideImage?: boolean;
 };
 
-export default function Layout({ children }: LayoutProps) {
-  return (
+export default function Layout({
+  children,
+  showNav,
+  showSideImage,
+}: LayoutProps) {
+  return showSideImage ? (
+    <MainLayoutBoxWithSideImage>
+      <NavBar showNav={showNav} />
+      <Main>{children}</Main>
+      <Footer />
+    </MainLayoutBoxWithSideImage>
+  ) : (
     <MainLayoutBox>
-      <NavBar />
+      <NavBar showNav={showNav} />
       <Main>{children}</Main>
       <Footer />
     </MainLayoutBox>
@@ -24,6 +36,8 @@ const MainLayoutBox = styled.main`
   align-items: center;
   margin: 0rem auto;
   min-height: 100vh;
+`;
+const MainLayoutBoxWithSideImage = styled(MainLayoutBox)`
   background-image: url("/bkg.webp");
   background-repeat: repeat-y;
   background-size: contain;

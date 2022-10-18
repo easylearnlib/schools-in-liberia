@@ -6,7 +6,7 @@ import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <Component {...pageProps} />{" "}
-    </Layout>
+    </>
   );
 }
 
