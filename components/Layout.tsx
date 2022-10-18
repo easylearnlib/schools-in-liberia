@@ -7,12 +7,14 @@ type LayoutProps = {
   children: React.ReactNode;
   showNav?: boolean;
   showSideImage?: boolean;
+  schoolName?: string;
 };
 
 export default function Layout({
   children,
   showNav,
   showSideImage,
+  schoolName,
 }: LayoutProps) {
   return showSideImage ? (
     <MainLayoutBoxWithSideImage>
@@ -22,7 +24,7 @@ export default function Layout({
     </MainLayoutBoxWithSideImage>
   ) : (
     <MainLayoutBox>
-      <NavBar showNav={showNav} />
+      <NavBar showNav={showNav} schoolName={schoolName} />
       <Main>{children}</Main>
       <Footer />
     </MainLayoutBox>
@@ -49,5 +51,4 @@ const Main = styled.div`
   width: 100%;
   max-width: 60rem;
   margin: 0 auto;
-  padding: 2rem 0;
 `;

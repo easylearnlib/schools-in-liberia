@@ -31,6 +31,7 @@ const drawerWidth = 240;
 
 type Props = {
   showNav?: boolean;
+  schoolName?: string;
 };
 
 const NavBar = (props: Props) => {
@@ -42,9 +43,6 @@ const NavBar = (props: Props) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        EDU-LIBERIA
-      </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -80,7 +78,10 @@ const NavBar = (props: Props) => {
               sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold" }}
             >
               <Link href={`/`} passHref>
-                <a style={{ textDecoration: "none" }}> EDU-LIBERIA</a>
+                <a style={{ textDecoration: "none" }}>
+                  {" "}
+                  {props.schoolName || "EDU-LIBERIA"}
+                </a>
               </Link>
             </Typography>
 
@@ -97,7 +98,10 @@ const NavBar = (props: Props) => {
               }}
             >
               <Link href={`/`} passHref>
-                <a style={{ textDecoration: "none" }}> EDU-LIBERIA</a>
+                <a style={{ textDecoration: "none" }}>
+                  {" "}
+                  {props.schoolName || "EDU-LIBERIA"}
+                </a>
               </Link>
             </Typography>
             {showNav && (

@@ -25,7 +25,7 @@ type HomeProps = {
 
 function SchoolDetails({ school }: HomeProps) {
   return (
-    <Layout showNav={true} showSideImage={false}>
+    <Layout showNav={true} showSideImage={false} schoolName={school.schoolName}>
       <Wrapper>
         <NextSeo title={school.schoolName} titleTemplate={school.schoolName} />
         <Container>
