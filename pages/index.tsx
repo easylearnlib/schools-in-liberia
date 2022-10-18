@@ -14,7 +14,6 @@ import "swiper/css/scrollbar";
 function Home() {
   return (
     <Swiper
-      // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       navigation
@@ -22,30 +21,8 @@ function Home() {
     >
       <SwiperSlide>
         <ImageWrapper>
-          <Image
-            alt={""}
-            src={
-              "https://images.unsplash.com/photo-1495727034151-8fdc73e332a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1765&q=80"
-            }
-          />
           <Center>
-            <Header variant={"h1"}>Welcome to EDU-LIBERIA</Header>
-            <StyledButton variant="contained" href={"/search"}>
-              GET STARTED
-            </StyledButton>
-          </Center>
-        </ImageWrapper>
-      </SwiperSlide>
-      <SwiperSlide>
-        <ImageWrapper>
-          <Image
-            alt={""}
-            src={
-              "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80"
-            }
-          />
-          <Center>
-            <Header variant={"h1"}>Welcome to EDU-LIBERIA</Header>
+            <Header variant={"h2"}>Welcome to EDU-LIBERIA</Header>
             <StyledButton variant="contained" href={"/search"}>
               GET STARTED
             </StyledButton>
@@ -56,16 +33,13 @@ function Home() {
   );
 }
 
-const Wrapper = styled.div`
-  margin: 0.5rem 0;
+const ImageWrapper = styled.main`
+  display: flex;
   justify-content: center;
-  width: 100%;
-`;
-
-const ImageWrapper = styled.div`
-  height: 100vh;
-  width: 100%;
-  position: relative;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
+  background-size: fill;
 `;
 
 const StyledButton = muiStyled(Button)`
@@ -74,9 +48,6 @@ const StyledButton = muiStyled(Button)`
 `;
 
 const Center = muiStyled("div")`
-  position: absolute;
-  top: 60%;
-  left: 35%;
   display: flex;
   flex-direction: column;
   color: white;
@@ -85,16 +56,12 @@ const Center = muiStyled("div")`
   gap: 1rem;
 `;
 
-const Image = muiStyled("img")`
-
-  width:100%;
-  height: 100%;
-`;
-
 const Header = muiStyled(Typography)`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0;
+
+
 `;
 
 export default Home;
