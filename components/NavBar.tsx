@@ -47,7 +47,7 @@ const NavBar = (props: Props) => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton href={`#${item}`} sx={{ textAlign: "center" }}>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -116,7 +116,11 @@ const NavBar = (props: Props) => {
                 }}
               >
                 {navItems.map((item) => (
-                  <Button key={item} sx={{ color: "#01579b" }}>
+                  <Button
+                    key={item}
+                    sx={{ color: "#01579b" }}
+                    href={`#${item}`}
+                  >
                     {item}
                   </Button>
                 ))}

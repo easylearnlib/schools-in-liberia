@@ -2,22 +2,10 @@ import data from "../../data/schools.json";
 import { SchoolsInput } from "../../models";
 import { slugify } from "../../utilities";
 import styled from "styled-components";
-import { styled as muiStyled } from "@mui/system";
 import { NextSeo } from "next-seo";
 import { Grid, Paper } from "@mui/material";
 import Link from "next/link";
-import { KeyboardEvent } from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import Layout from "../../components/Layout";
-
-import MuiAccordionSummary, {
-  AccordionSummaryProps,
-} from "@mui/material/AccordionSummary";
 
 type HomeProps = {
   school: SchoolsInput;
@@ -51,153 +39,9 @@ function SchoolDetails({ school }: HomeProps) {
               </Link>
             </Head>
           </Paper>
-
-          <Paper sx={{ minHeight: "calc(100vh - 24rem)" }}>
-            <Body
-              container
-              direction={"column"}
-              sx={{ px: { xs: 0, sm: 1, md: 2, lg: 3 }, py: 3 }}
-            >
-              <Section label={"Main"}>
-                <Item>
-                  EMIS
-                  <Value>{school.emisNumber}</Value>
-                </Item>
-                <Item>
-                  School Type
-                  <Value>{school.schoolType}</Value>
-                </Item>
-                <Item>
-                  Phone
-                  <Value>N/A</Value>
-                </Item>
-
-                <Item>
-                  Email
-                  <Value>N/A</Value>
-                </Item>
-                <Item>
-                  Address
-                  <Value>N/A</Value>
-                </Item>
-                <Item>
-                  Website
-                  <Value>N/A</Value>
-                </Item>
-              </Section>
-              <Section label={"Extra"}>
-                <Item>
-                  Senior High
-                  <Value>{school.shsSchool ? "Yes" : "None"}</Value>
-                </Item>
-                <Item>
-                  TVET School
-                  <Value>{school.tvetSchool ? "Yes" : "None"}</Value>
-                </Item>
-                <Item>
-                  ABE School
-                  <Value>{school.abeSchool ? "Yes" : "None"}</Value>
-                </Item>
-
-                <Item>
-                  Junior High
-                  <Value>{school.jhsSchool ? "Yes" : "None"}</Value>
-                </Item>
-                <Item>
-                  ALP School
-                  <Value>{school.alpSchool ? "Yes" : "None"}</Value>
-                </Item>
-                <Item>
-                  Elementary
-                  <Value>{school.primarySchool ? "Yes" : "None"}</Value>
-                </Item>
-
-                <Item>
-                  ECE School
-                  <Value>{school.eceSchool ? "Yes" : "None"}</Value>
-                </Item>
-              </Section>
-              <Section label={"Facilities"}>
-                <Item>
-                  Computer Lab
-                  <Value>N/A</Value>
-                </Item>
-                <Item>
-                  Gymnasium
-                  <Value>N/A</Value>
-                </Item>
-                <Item>
-                  Laboratory
-                  <Value>N/A</Value>
-                </Item>
-              </Section>
-              <Section label={"Ratings"}>
-                <Item>
-                  MOE
-                  <Value>N/A</Value>
-                </Item>
-
-                <Item>
-                  Public
-                  <Value>N/A</Value>
-                </Item>
-                <Item>
-                  WAEC
-                  <Value>N/A</Value>
-                </Item>
-
-                <Item>
-                  Basketball
-                  <Value>N/A</Value>
-                </Item>
-
-                <Item>
-                  Kickball
-                  <Value>N/A</Value>
-                </Item>
-                <Item>
-                  Football
-                  <Value>N/A</Value>
-                </Item>
-              </Section>
-            </Body>
-          </Paper>
         </Container>
       </Wrapper>
     </Layout>
-  );
-}
-
-type SectionProps = {
-  label: string;
-  children: React.ReactNode;
-};
-
-function Section(props: SectionProps) {
-  const { label, children } = props;
-
-  const AccordionSummary = muiStyled((props: AccordionSummaryProps) => (
-    <MuiAccordionSummary
-      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
-      {...props}
-    />
-  ))(({ theme }) => ({
-    backgroundColor: "rgba(0, 0, 0, .03)",
-  }));
-
-  return (
-    <Accordion defaultExpanded={true}>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls={label}
-        id={label}
-      >
-        <Typography>{label}</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Row item>{children}</Row>
-      </AccordionDetails>
-    </Accordion>
   );
 }
 
@@ -254,20 +98,6 @@ const SubTitle = styled.h2`
   padding: 0;
 `;
 
-const Value = styled(SubTitle)`
-  color: #01579b;
-  margin: 0;
-  font-size: 1rem;
-`;
-
-const Body = styled(Grid)`
-  align-text: left;
-  height: 100%;
-  margin: 0 auto;
-  font-size: 1rem;
-  max-width: 60rem;
-`;
-
 const Head = styled(Grid)`
   padding: 1rem 0;
   background: #01579b;
@@ -298,26 +128,6 @@ const Row = styled(Grid)`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.5rem;
   padding: 1rem;
-`;
-
-const Info = styled("div")<{
-  onClick: () => void;
-  onKeyUp: (evt: KeyboardEvent) => void;
-}>`
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-`;
-
-const Item = styled("div")`
-  margin: 0;
-  padding: 0;
 `;
 
 const HeroSlice = styled("div")`
