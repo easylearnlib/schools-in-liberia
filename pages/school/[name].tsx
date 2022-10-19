@@ -34,9 +34,13 @@ function SchoolDetails({ school }: HomeProps) {
                 {school.district} District - {school.county} County
               </SubTitle>
               <SubTitle>Liberia</SubTitle>
-              <Link href={"/"} passHref>
-                <Anchor>Return to home page</Anchor>
-              </Link>
+            </Head>
+          </Paper>
+        </Container>
+        <Container>
+          <Paper>
+            <Head>
+              <Title>Coming soon... In development</Title>
             </Head>
           </Paper>
         </Container>
@@ -103,31 +107,6 @@ const Head = styled(Grid)`
   background: #01579b;
   color: #fff;
   text-align: center;
-`;
-
-const Anchor = styled.a`
-  cursor: pointer;
-  border: 1px solid #fff;
-  padding: 0.2rem 0.7rem;
-  display: inline-block;
-  font-size: 0.9rem;
-  background: #fff;
-  color: #01579b;
-
-  &:visited {
-    color: rgba(0, 0, 0, 0.87);
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const Row = styled(Grid)`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.5rem;
-  padding: 1rem;
 `;
 
 const HeroSlice = styled("div")`
