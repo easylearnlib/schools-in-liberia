@@ -19,15 +19,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         titleTemplate="Educational institutions in Liberia"
         defaultTitle="Educational institutions in Liberia"
         description="Find all the educational institutions in Liberia and details about location,contacts, facilities, ratings and more"
-        canonical="https://studyinliberia.xyz"
+        canonical="https://schools.studyinliberia.xyz"
         openGraph={{
-          url: "https://studyinliberia.xyz",
+          url: "https://schools.studyinliberia.xyz",
           title: "Educational institutions in Liberia",
           description:
             "Find all the educational institutions in Liberia and details about location,contacts, facilities, ratings and more",
           images: [
             {
-              url: "https://studyinliberia.xyz/freddie-marriage.png",
+              url: "https://schools.studyinliberia.xyz/freddie-marriage.png",
               width: 800,
               height: 420,
               alt: "Educational institutions in Liberia",
