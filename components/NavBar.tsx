@@ -100,7 +100,7 @@ const NavBar = (props: Props) => {
                 py: 3,
               }}
             >
-              <Link href={`/`} passHref>
+              <Link href={`/search`} passHref>
                 <a style={{ textDecoration: "none" }}>
                   {" "}
                   {props.schoolName || "EDU-LIBERIA"}
