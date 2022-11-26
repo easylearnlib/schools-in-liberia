@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="robots" content="all" />

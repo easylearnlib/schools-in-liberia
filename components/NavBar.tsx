@@ -80,7 +80,7 @@ const NavBar = (props: Props) => {
               component="div"
               sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold" }}
             >
-              <Link href={`/`} passHref>
+              <Link href={`/search`} passHref>
                 <a style={{ textDecoration: "none" }}>
                   {" "}
                   {props.schoolName || "EDU-LIBERIA"}
