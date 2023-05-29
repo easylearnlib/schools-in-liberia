@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://schools.studyinliberia.xyz
+Host: https://schools.smartchance.co
 
 # Sitemaps
-Sitemap: https://schools.studyinliberia.xyz/sitemap.xml
+Sitemap: https://schools.smartchance.co/sitemap.xml
