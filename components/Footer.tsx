@@ -7,10 +7,10 @@ export default function Footer() {
   return (
     <Wrapper>
       <Text>+231777298772</Text>
-      <Text>smrtchance@gmail.com/nouhanjabateh@gmail.com</Text>
+      <Text>admin@smartchance.org/nouhanjabateh@gmail.com</Text>
       <Text>
         powered by
-        <Link passHref href={"https://smartchance.co"}>
+        <Link passHref href={"https://smartchance.org"}>
           <Anchor target="_blank">SmartChance</Anchor>
         </Link>
       </Text>
