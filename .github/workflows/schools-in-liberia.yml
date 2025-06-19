@@ -35,7 +35,7 @@ jobs:
           npm run build
           rm -rf data
         env:
-          NEXT_PUBLIC_BASE_PATH: https://schools.smartchance.co
+          NEXT_PUBLIC_BASE_PATH: https://schools.smartchance.org
       - run: touch ./out/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
