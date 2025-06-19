@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://schools.smartchance.co
+Host: https://schools.smartchance.org
 
 # Sitemaps
-Sitemap: https://schools.smartchance.co/sitemap.xml
+Sitemap: https://schools.smartchance.org/sitemap.xml
