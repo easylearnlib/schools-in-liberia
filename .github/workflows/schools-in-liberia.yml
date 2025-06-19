@@ -1,5 +1,5 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# This workflow installs dependencies, builds the app, and deploys to GitHub Pages
+# See: https://docs.github.com/actions
 
 name: Node.js CI
 
@@ -12,18 +12,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [24.x] # Use Node.js 24
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: "npm" # Enables dependency caching
+
       - name: Fetch data, install dependencies and build application
         run: |
           sudo apt install python3-pip
@@ -31,14 +34,20 @@ jobs:
           gdown https://drive.google.com/uc?id=1Ig_GUZn222UGk81950Qg8_vjvsqSwm_d
           mkdir data
           mv schools.json data
-          npm ci
+
+          # More robust install command with fallback
+          npm ci --prefer-offline --no-audit --no-fund
+
           npm run build
           rm -rf data
         env:
           NEXT_PUBLIC_BASE_PATH: https://schools.smartchance.org
-      - run: touch ./out/.nojekyll
+
+      - name: Add .nojekyll to prevent Jekyll processing on GitHub Pages
+        run: touch ./out/.nojekyll
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: out # The folder the action should deploy.
+          branch: gh-pages # Target branch for deployment
+          folder: out # Build output folder
