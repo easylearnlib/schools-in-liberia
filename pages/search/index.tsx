@@ -21,7 +21,7 @@ function Home({ schools }: HomeProps) {
   const paginatedResult = doPagination(sortedResult, page, rowsPerPage);
 
   return (
-    <Layout>
+    <Main>
       <Wrapper>
         <SearchBox dispatch={dispatch} />
      
@@ -37,7 +37,7 @@ function Home({ schools }: HomeProps) {
           />
         
       </Wrapper>
-    </Layout>
+    </Main>
   );
 }
 
@@ -53,6 +53,14 @@ const Wrapper = styled.div`
   margin: 0.5rem 0;
   justify-content: center;
   width: 100%;
+`;
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
 `;
 
 export default Home;

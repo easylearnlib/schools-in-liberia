@@ -1,17 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import List from "@mui/material/List";
 import Paper from "@mui/material/Paper";
 import styled from "styled-components";
-import Divider from "@mui/material/Divider";
 import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import { ActionType, SelectedType } from "../models";
-import { insertElement } from "../helpers";
 import MultiFilter from "./MultiFilter";
 
 type Props = {
@@ -74,6 +67,10 @@ export default function SearchBox(props: Props) {
             <Option value={"county"}>County</Option>
             <Option value={"emisNumber"}>Rating</Option>
           </Select>
+           <Input
+            onChange={handleSearch}
+            placeholder={"search by school name"}
+          />
         </FlexLeft>
         <FlexRight
           sx={{
@@ -81,10 +78,6 @@ export default function SearchBox(props: Props) {
             gap: { xs: "0.5rem", md: "1rem" },
           }}
         >
-          <Input
-            onChange={handleSearch}
-            placeholder={"search by school name"}
-          />
           <MuiButton onClick={(event) => toggleDrawer(event)}>
             search with filters
           </MuiButton>
