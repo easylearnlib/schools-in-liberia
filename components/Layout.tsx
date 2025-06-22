@@ -20,13 +20,11 @@ export default function Layout({
     <MainLayoutBoxWithSideImage>
       <NavBar showNav={showNav} />
       <Main>{children}</Main>
-      <Footer />
     </MainLayoutBoxWithSideImage>
   ) : (
     <MainLayoutBox>
       <NavBar showNav={showNav} schoolName={schoolName} />
       <Main>{children}</Main>
-      <Footer />
     </MainLayoutBox>
   );
 }
