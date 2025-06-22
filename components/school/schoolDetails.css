@@ -12,6 +12,13 @@
   background: #f7faff;
 }
 
+/* Mobile view: single column */
+@media (max-width: 768px) {
+  .school-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .section-box {
   background: #ffffff;
   padding: 1rem 1.5rem;

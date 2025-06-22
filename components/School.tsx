@@ -18,7 +18,6 @@ export default function School(props: Props) {
             <County>{school.county} — {school.district}</County>
             <ChipContainer>
               <Chip>{school.schoolType}</Chip>
-              <Chip>{school.rating || "N/A" }</Chip>
             </ChipContainer>
             <Link href={`/school/${slugify(school.schoolName)}`} passHref>
               <ViewButton>View Details</ViewButton>
