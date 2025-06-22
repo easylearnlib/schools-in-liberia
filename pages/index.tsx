@@ -92,7 +92,7 @@ function Home() {
           Discover and compare high schools across the country. Make informed
           decisions about your child’s future.
         </Subheading>
-        <Link href="/schools" passHref>
+        <Link href="/search" passHref>
           <CTAButton>Browse Schools</CTAButton>
         </Link>
       </Hero>

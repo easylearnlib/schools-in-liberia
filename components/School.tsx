@@ -14,49 +14,57 @@ export default function School(props: Props) {
   const { school } = props;
 
   return (
-    <Wrapper sx={{ px: { xs: "1rem", md: "4rem" } }}>
-      <Container>
-        <Head>{school.emisNumber}</Head>
-        <Head>
-          <Link href={`/school/${slugify(school.schoolName)}`} passHref>
-            <Anchor>{school.schoolName}</Anchor>
-          </Link>
-        </Head>
-        <Label>{school.schoolType}</Label>
-        <Label>
-          {school.district} - {school.county}
-        </Label>
-      </Container>
-    </Wrapper>
+      <SchoolGrid>
+          <Card>
+            <SchoolName>{school.schoolName}</SchoolName>
+            <County>{school.county} — {school.district}</County>
+            <p>Type: {school.schoolType}</p>
+            <p>Rating: {school.rating || "N/A"}</p>
+            <Link href={`/schools/${slugify(school.schoolName)}`} passHref>
+              <ViewButton>View Details</ViewButton>
+            </Link>
+          </Card>
+      </SchoolGrid>
   );
 }
 
-const Wrapper = styled(Box)`
-  width: 100%;
+
+
+const SchoolGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 `;
 
-const Container = styled(Box)`
-  border-top: 1px solid #ccc;
-  padding: 2rem;
-`;
-
-const Head = muiStyled(Typography)`
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0;
-`;
-
-const Label = muiStyled(Typography)`
-  margin: 0;
-  font-size: 1rem;
-`;
-
-const Anchor = styled.a`
-  color: #01579b;
-  cursor: pointer;
-  text-decoration: none;
+const Card = styled.div`
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
 
   &:hover {
-    text-decoration: underline;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
+`;
+
+const SchoolName = styled.h2`
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+`;
+
+const County = styled.p`
+  margin: 0;
+  font-size: 0.9rem;
+  color: #444;
+`;
+
+const ViewButton = styled.a`
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #1976d2;
+  text-decoration: underline;
+  cursor: pointer;
 `;

@@ -80,10 +80,10 @@ const NavBar = (props: Props) => {
               component="div"
               sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold" }}
             >
-              <Link href={`/search`} passHref>
+              <Link href={`/`} passHref>
                 <a style={{ textDecoration: "none" }}>
                   {" "}
-                  {props.schoolName || "EDU-LIBERIA"}
+                  {props.schoolName || "School Finder"}
                 </a>
               </Link>
             </Typography>
@@ -100,10 +100,10 @@ const NavBar = (props: Props) => {
                 py: 3,
               }}
             >
-              <Link href={`/search`} passHref>
+              <Link href={`/`} passHref>
                 <a style={{ textDecoration: "none" }}>
                   {" "}
-                  {props.schoolName || "EDU-LIBERIA"}
+                  {props.schoolName || "School Finder"}
                 </a>
               </Link>
             </Typography>

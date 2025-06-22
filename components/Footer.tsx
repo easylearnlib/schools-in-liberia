@@ -45,8 +45,6 @@ export default function Footer() {
       </Text>
       <Text>
         <Anchor href="mailto:admin@smartchance.org">admin@smartchance.org</Anchor>
-        {" / "}
-        <Anchor href="mailto:nouhanjabateh@gmail.com">nouhanjabateh@gmail.com</Anchor>
       </Text>
       <Text>
         Powered by
