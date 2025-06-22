@@ -18,6 +18,10 @@ export default function School(props: Props) {
             <County>{school.county} — {school.district}</County>
             <Info>Type: {school.schoolType}</Info>
             <Info>Rating: {school.rating || "N/A"}</Info>
+              <ChipContainer>
+                <Chip>{school.schoolType}</Chip>
+                <Chip>{school.rating || "N/A" }</Chip>
+              </ChipContainer>
             <Link href={`/school/${slugify(school.schoolName)}`} passHref>
               <ViewButton>View Details</ViewButton>
             </Link>
@@ -29,6 +33,22 @@ export default function School(props: Props) {
 
 const Info = styled.p`
   font-size: 1rem;
+`;
+
+const ChipContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+`;
+
+const Chip = styled.span`
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  white-space: nowrap;
 `;
 
 const SchoolGrid = styled.div`
