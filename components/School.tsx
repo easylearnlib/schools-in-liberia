@@ -1,7 +1,5 @@
 import * as React from "react";
-import { Box, Paper, Typography } from "@mui/material";
 import styled from "styled-components";
-import { styled as muiStyled } from "@mui/system";
 import { SchoolsInput } from "../models";
 import Link from "next/link";
 import { slugify } from "../utilities";
@@ -18,8 +16,8 @@ export default function School(props: Props) {
           <Card>
             <SchoolName>{school.schoolName}</SchoolName>
             <County>{school.county} — {school.district}</County>
-            <p>Type: {school.schoolType}</p>
-            <p>Rating: {school.rating || "N/A"}</p>
+            <Info>Type: {school.schoolType}</Info>
+            <Info>Rating: {school.rating || "N/A"}</Info>
             <Link href={`/school/${slugify(school.schoolName)}`} passHref>
               <ViewButton>View Details</ViewButton>
             </Link>
@@ -29,12 +27,15 @@ export default function School(props: Props) {
 }
 
 
+const Info = styled.p`
+  font-size: 1rem;
+`;
 
 const SchoolGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 1rem;
+  margin: 1rem 0;
 `;
 
 const Card = styled.div`

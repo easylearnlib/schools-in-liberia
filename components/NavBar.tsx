@@ -76,7 +76,7 @@ const NavBar = (props: Props) => {
             )}
 
             <Typography
-              variant="h4"
+              variant="h6"
               component="div"
               sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold" }}
             >
@@ -89,7 +89,7 @@ const NavBar = (props: Props) => {
             </Typography>
 
             <Typography
-              variant="h4"
+              variant="h6"
               component="div"
               sx={{
                 flexGrow: 1,
