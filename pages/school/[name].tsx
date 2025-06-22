@@ -79,7 +79,7 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
     abeSchool: false,
     alpSchool: false,
     eceSchool: false,
-    kind: false,
+    kind: 'faith',
     facilities: [],
     rating: "N/A",
     numberOfStudents: 0,

@@ -11,7 +11,7 @@ export interface SchoolsInput {
   abeSchool: boolean;
   alpSchool: boolean;
   eceSchool: boolean;
-  kind: boolean;
+  kind: string;
   facilities: string[];
   rating?: string;
   numberOfStudents?: number;
