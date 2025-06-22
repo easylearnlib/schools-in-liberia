@@ -3,42 +3,30 @@ import styled from "styled-components";
 import { Paper } from "@mui/material";
 import Link from "next/link";
 
-export default function Footer() {
-  return (
-    <Wrapper>
-      <Text>+231777298772</Text>
-      <Text>admin@smartchance.org/nouhanjabateh@gmail.com</Text>
-      <Text>
-        powered by
-        <Link passHref href={"https://smartchance.org"}>
-          <Anchor target="_blank">SmartChance</Anchor>
-        </Link>
-      </Text>
-    </Wrapper>
-  );
-}
-
 const Wrapper = styled(Paper)`
   display: flex;
-  max-width: 60rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
+  max-width: 60rem;
   width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   border-top: 1px solid #ccc;
-  padding-bottom: 2rem;
+  background-color: #f9f9f9;
 `;
 
 const Text = styled.p`
-  &: first-of-type {
-    margin-top: 2rem;
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+  text-align: center;
+
+  &:first-of-type {
+    margin-top: 1rem;
   }
-  margin: 0;
-  font-size: 0.8rem;
 `;
 
-const Anchor = styled.a`
+const Anchor = styled.a.attrs({ target: "_blank", rel: "noopener noreferrer" })<React.AnchorHTMLAttributes<HTMLAnchorElement>>`
   color: #01579b;
   cursor: pointer;
   text-decoration: none;
@@ -48,3 +36,24 @@ const Anchor = styled.a`
     text-decoration: underline;
   }
 `;
+
+export default function Footer() {
+  return (
+    <Wrapper elevation={0}>
+      <Text>
+        <Anchor href="tel:+231777298772">+231 777 298 772</Anchor>
+      </Text>
+      <Text>
+        <Anchor href="mailto:admin@smartchance.org">admin@smartchance.org</Anchor>
+        {" / "}
+        <Anchor href="mailto:nouhanjabateh@gmail.com">nouhanjabateh@gmail.com</Anchor>
+      </Text>
+      <Text>
+        Powered by
+        <Link passHref href="https://smartchance.org">
+          <Anchor target="_blank" rel="noopener noreferrer">SmartChance</Anchor>
+        </Link>
+      </Text>
+    </Wrapper>
+  );
+}

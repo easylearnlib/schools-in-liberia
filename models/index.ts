@@ -19,7 +19,32 @@ export interface SchoolsInput {
   emailAddress?: string[];
   contactNumber?: number[];
   images?: string[];
+
+  
+  fees?: {
+    [grade: string]: number; // e.g., { "Grade 1": 250, "Grade 2": 260 }
+  };
+  events?: {
+    title: string;
+    date: string;
+    description: string;
+  }[];
+  academicCalendar?: {
+    name: string;
+    start: string;
+    end: string;
+  }[];
+  examPerformance?: {
+    year: number;
+    passRate: string;
+    distinctionRate?: string;
+  }[];
+  location?: {
+    lat: number;
+    lng: number;
+  };
 }
+
 
 export type FilterType = {
   selectedCounties: string[];
