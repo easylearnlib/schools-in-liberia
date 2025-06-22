@@ -109,16 +109,7 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
 
   const school: SchoolsInput = {
     ...defaultSchool,
-    ...schoolRaw,
-    facilities: schoolRaw?.facilities || [],
-    emailAddress: schoolRaw?.emailAddress || [],
-    contactNumber: schoolRaw?.contactNumber || [],
-    images: schoolRaw?.images || [],
-    fees: schoolRaw?.fees || defaultSchool.fees,
-    events: schoolRaw?.events || [],
-    academicCalendar: schoolRaw?.academicCalendar || [],
-    examPerformance: schoolRaw?.examPerformance || [],
-    location: schoolRaw?.location || defaultSchool.location,
+    ...schoolRaw
   };
 
   return {
