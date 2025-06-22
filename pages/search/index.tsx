@@ -21,10 +21,10 @@ function Home({ schools }: HomeProps) {
   const paginatedResult = doPagination(sortedResult, page, rowsPerPage);
 
   return (
-    <Layout>
+    <>
       <Wrapper>
         <SearchBox dispatch={dispatch} />
-        <Paper>
+     
           {paginatedResult.map((school) => (
             <School key={school.emisNumber} school={school} />
           ))}
@@ -35,9 +35,9 @@ function Home({ schools }: HomeProps) {
             setRowsPerPage={setRowsPerPage}
             size={sortedResult.length}
           />
-        </Paper>
+        
       </Wrapper>
-    </Layout>
+    </>
   );
 }
 

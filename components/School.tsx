@@ -20,7 +20,7 @@ export default function School(props: Props) {
             <County>{school.county} — {school.district}</County>
             <p>Type: {school.schoolType}</p>
             <p>Rating: {school.rating || "N/A"}</p>
-            <Link href={`/schools/${slugify(school.schoolName)}`} passHref>
+            <Link href={`/school/${slugify(school.schoolName)}`} passHref>
               <ViewButton>View Details</ViewButton>
             </Link>
           </Card>
@@ -33,11 +33,12 @@ export default function School(props: Props) {
 const SchoolGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
+  margin: 2rem 0;
 `;
 
 const Card = styled.div`
-  background: #f9f9f9;
+  background: #ffffff;
   border-radius: 12px;
   padding: 1rem;
   border: 1px solid #e0e0e0;
