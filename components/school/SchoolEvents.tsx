@@ -9,7 +9,7 @@ const SchoolEvents = ({ events }: any) => {
   }
 
   return (
-    <div className="section-box">
+    <div className="section-box" id="Events">
       <h2 className="section-title">Events</h2>
       <ul>
         {events.map((event: any, index: number) => (

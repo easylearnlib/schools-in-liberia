@@ -1,5 +1,5 @@
 const SchoolTimetable = ({ academicCalendar }: any) => (
-  <div className="section-box">
+  <div className="section-box" id="TimeTable">
     <h2 className="section-title">Academic Calendar</h2>
     <ul>
       {academicCalendar.map((term: any, index: number) => (

@@ -6,7 +6,7 @@ const SchoolFees = (props: {
 
 
 
-  <div>
+  <div id="Fees">
     <h2>Tuition Fees</h2>
     <table>
       <thead>

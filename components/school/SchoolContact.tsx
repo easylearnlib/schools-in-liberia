@@ -2,7 +2,7 @@ const SchoolContact = ({ contact }: any) => {
   const { district, county, address = 'Sinkor', phone= '+231', email='', website='' } = contact
 
   return (
-    <div className="section-box">
+    <div className="section-box" id="Contact">
       <h2 className="section-title">Contact Information</h2>
       <p><strong>County:</strong> {county}</p>
       <p><strong>District:</strong> {district}</p>
