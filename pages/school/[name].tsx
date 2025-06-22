@@ -66,7 +66,7 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
     }) => params.name === `${slugify(obj.schoolName)}`
   );
 
-  const defaultSchool: SchoolsInput = {
+  const defaultSchool: any = {
     schoolName: "Unknown School",
     schoolType: "Unknown",
     county: "Unknown",
