@@ -38,8 +38,8 @@ function SchoolDetails({ school }: HomeProps) {
                  <SchoolFacilities facilities={school.facilities} />
                  <SchoolFees fees={school.fees! } />
                  <SchoolEvents events={school.events} />
+                 <SchoolPerformance performance={school.examPerformance} />
                </div>
-               <SchoolPerformance performance={school.examPerformance} />
              </div>
         </Container>
       </Wrapper>
