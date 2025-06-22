@@ -6,7 +6,6 @@ const SchoolContact = ({ contact }: any) => {
       <h2 className="section-title">Contact Information</h2>
       <p><strong>County:</strong> {county}</p>
       <p><strong>District:</strong> {district}</p>
-      <p><strong>Address:</strong> {address}</p>
       <p><strong>Phone:</strong> {phone}</p>
       <p><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>
       {website && (

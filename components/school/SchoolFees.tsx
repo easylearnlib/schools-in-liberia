@@ -7,7 +7,7 @@ const SchoolFees = (props: {
 
 
   <div className="section-box"  id="Fees">
-    <h2>Tuition Fees</h2>
+    <h2 className="section-title">Tuition Fees</h2>
     <table>
       <thead>
         <tr>
