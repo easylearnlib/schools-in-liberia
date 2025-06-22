@@ -16,12 +16,10 @@ export default function School(props: Props) {
           <Card>
             <SchoolName>{school.schoolName}</SchoolName>
             <County>{school.county} — {school.district}</County>
-            <Info>Type: {school.schoolType}</Info>
-            <Info>Rating: {school.rating || "N/A"}</Info>
-              <ChipContainer>
-                <Chip>{school.schoolType}</Chip>
-                <Chip>{school.rating || "N/A" }</Chip>
-              </ChipContainer>
+            <ChipContainer>
+              <Chip>{school.schoolType}</Chip>
+              <Chip>{school.rating || "N/A" }</Chip>
+            </ChipContainer>
             <Link href={`/school/${slugify(school.schoolName)}`} passHref>
               <ViewButton>View Details</ViewButton>
             </Link>
