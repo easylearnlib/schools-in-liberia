@@ -10,7 +10,7 @@ import Layout from "../../components/Layout";
 import SchoolContact from "../../components/school/SchoolContact";
 import SchoolFacilities from "../../components/school/SchoolFacilities";
 import SchoolHero from '../../components/school/SchoolHero'
-import '../../components/school/SchoolDetails.css'
+import '../../components/school/schoolDetails.css'
 import SchoolMap from "../../components/school/SchoolMap";
 import SchoolTimetable from "../../components/school/SchoolTimetable";
 import SchoolFees from "../../components/school/SchoolFees";
