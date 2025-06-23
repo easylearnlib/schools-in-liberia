@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { Button, Typography } from "@mui/material";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { styled as muiStyled } from "@mui/system";
-import { Swiper, SwiperSlide } from "swiper/react";
+import Footer from "../components/Footer";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -119,6 +116,8 @@ function Home() {
           </FeatureText>
         </FeatureCard>
       </Features>
+
+      <Footer/>
 
     </Page>
   );
