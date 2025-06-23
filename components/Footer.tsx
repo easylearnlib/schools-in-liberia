@@ -9,6 +9,8 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
 
     background: #eee;
+    font-size: 1rem;
+    color: #000000;
 
     margin-top: auto;
     padding: 2rem 0.5rem;
@@ -20,6 +22,7 @@ const Anchor = styled.a.attrs({ target: "_blank", rel: "noopener noreferrer" })<
   cursor: pointer;
   text-decoration: none;
   margin-left: 0.2rem;
+  font-size: 1rem;
 
   &:hover {
     text-decoration: underline;
@@ -29,7 +32,7 @@ const Anchor = styled.a.attrs({ target: "_blank", rel: "noopener noreferrer" })<
 export default function Footer() {
   return (
     <Wrapper>
-        Powered by
+        powered by
         <Link passHref href="https://smartchance.org">
           <Anchor target="_blank" rel="noopener noreferrer">SmartChance</Anchor>
         </Link>
