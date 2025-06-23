@@ -15,6 +15,7 @@ export default function School(props: Props) {
       <SchoolGrid>
           <Card>
             <SchoolName>{school.schoolName}</SchoolName>
+            <Emis>{school.emisNumber}</Emis>
             <County>{school.county} — {school.district}</County>
             <ChipContainer>
               <Chip>{school.schoolType}</Chip>
@@ -70,6 +71,11 @@ const Card = styled.div`
 
 const SchoolName = styled.h2`
   font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+`;
+
+const Emis = styled.p`
+  font-size: 1rem;
   margin-bottom: 0.5rem;
 `;
 
