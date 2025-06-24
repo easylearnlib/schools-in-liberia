@@ -96,21 +96,27 @@ function Home() {
 
       <Features>
         <FeatureCard>
-          <FeatureTitle>Browse Schools</FeatureTitle>
+          <Link href="/search" passHref>
+            <FeatureTitle>Browse Schools</FeatureTitle>
+          </Link>
           <FeatureText>
             View a comprehensive list of schools with advanced filters and sorting.
           </FeatureText>
         </FeatureCard>
 
         <FeatureCard>
-          <FeatureTitle>Compare Performance</FeatureTitle>
+          <Link href="/search" passHref>
+            <FeatureTitle>Compare Performance</FeatureTitle>
+          </Link>
           <FeatureText>
             Explore WAEC pass rates and student stats for better decision making.
           </FeatureText>
         </FeatureCard>
 
         <FeatureCard>
-          <FeatureTitle>See Facilities</FeatureTitle>
+          <Link href="/search" passHref>
+            <FeatureTitle>See Facilities</FeatureTitle>
+          </Link>
           <FeatureText>
             Check what facilities are available at each institution before you apply.
           </FeatureText>
